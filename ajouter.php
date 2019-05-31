@@ -3,6 +3,8 @@
 
 <head>
 
+
+  $_POST
   <meta charset="UTF-8">
   <link href="css/style.css" rel="stylesheet">
   <title>Mon Blog</title>
@@ -11,10 +13,14 @@
 
 <body>
 
+
+
+
   <h1>Ajouter un billet</h1>
 
 
   <?php
+
 
   try {
     // DEFINIR LA BASE DE DONNEE
@@ -23,7 +29,7 @@
     die('Erreur : ' . $e->getMessage());
   }
 
-  // Code executer si non validon le formulaire avec le bontou
+  // Code executer sinon validon le formulaire avec le bontou
   if (isset($_POST["Titre"])) {
     $Titre =  $_POST["Titre"];
     $Contenu = $_POST["Contenu"];
@@ -55,9 +61,9 @@
       <label for="name">Contenu: </label>
       <input type="text" name="Contenu" id="Contenu" required>
     </div>
-    
+
     <div class="form-example">
-      <input type="submit" value="Valider" >
+      <input type="submit" value="Valider">
     </div>
   </form>
 
