@@ -16,6 +16,7 @@
 
   <?php
 
+
   try {
     // DEFINIR LA BASE DE DONNEE
     $bdd = new PDO('mysql:host=localhost;dbname=blog', 'root', '');
