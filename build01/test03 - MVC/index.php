@@ -1,7 +1,7 @@
 <?php
 
-$view = file_get_contents("index_vue.html");
-$article_view = file_get_contents("index_article.html");
+$view = file_get_contents("index.html");
+$article_view = file_get_contents("index_article_content.html");
 
 $bloc_article = "";
 for ($i=0; $i < 10 ; $i++) { 
