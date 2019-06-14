@@ -1,0 +1,5 @@
+1 - Point de départ - "index_controller.php"
+
+
+CONTROLLER: Pas de HTML.
+VUE: Pas de PHP.
