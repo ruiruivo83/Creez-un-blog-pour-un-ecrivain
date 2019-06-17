@@ -141,6 +141,8 @@ $req->execute();
 
 // var_dump($req->fetchAll());
 
+$Code_Bouton_Effacer = " <a href='effacer_billet.php?id=$row[id]'>Effacer ce billet</a>";
+
 $result = $req->fetchAll();
 $bloc_billet = "";
 foreach ($result as $current_result) {
@@ -148,6 +150,8 @@ foreach ($result as $current_result) {
   $current_billet = str_replace("{DATE_BILLET}", $current_result["date_creation"], $current_billet);
   $current_billet = str_replace("{TITRE_BILLET}", $current_result["titre"], $current_billet);
   $current_billet = str_replace("{CONTENU_BILLET}", $current_result["contenu"], $current_billet);
+ 
+  $current_billet = str_replace("{BOUTON_EFFACER}", $Code_Bouton_Effacer, $current_billet);
 
   $bloc_billet .= $current_billet;
   // var_dump($current_result["titre"]);
