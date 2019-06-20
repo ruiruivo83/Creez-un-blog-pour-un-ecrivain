@@ -1,6 +1,6 @@
 <?php
 
-include 'config.php';
+require 'config.php';
 
 // BOUTON - VALIDER - TO DATABASE
 if ($_SERVER['REQUEST_METHOD'] == "POST" AND isset($_POST["editer"])) {
