@@ -1,12 +1,10 @@
-{HTML_DEFAULT_START}
-
-<form action="editer_billet_update.php" method="post" class="form-example">
+<form action="model/update_post.php" method="post" class="form-example">
 
     <div class="form-example">
         <label for="name">Titre du billet: </label>
         {INPUT_TITRE}
         <br>
-        {INPUT_ID}
+        <div>ID: {INPUT_ID}</div>
         <!-- <input type="text" name="Titre" id="Titre" required> -->
     </div>
 
@@ -19,13 +17,11 @@
     </div>
 
     <div class="form-example">
-        
-        <input type="submit" name="editer" value="Valider">
+
+        <input type="submit" name="update_post" value="Editer">
     </div>
 
     <br>
 
 </form>
 <br>
-
-{HTML_DEFAULT_END}

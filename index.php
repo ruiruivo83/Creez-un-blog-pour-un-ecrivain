@@ -1,55 +1,82 @@
+<!-- ROUTER -->
+
 <?php
-include 'config.php';
 
+// IMPORT
+require 'controller/post_controller.php';
 
-//// BUILD HTML INDEX CODE
+if (isset($_GET['action'])) {
 
-// GET Index.html into $view
-$view = file_get_contents(("index_vue.html"));
+    // LIST ALL POSTS
+    if ($_GET['action'] == 'list_posts') {
 
-//// REMPLACE {HTML_DEFAULT_START} BY CODE
-$html_default_start = file_get_contents("html_default_start.html");
-$view = str_replace("{HTML_DEFAULT_START}", $html_default_start, $view);
+        list_posts();
+    }
 
-//// REMPLACE {HTML_DEFAULT_END} BY CODE
-$html_default_end = file_get_contents("html_default_end.html");
-$view = str_replace("{HTML_DEFAULT_END}", $html_default_end, $view);
+    // ADD POST TO DATABASE
+    elseif (($_GET['action'] == 'add_post')) {
+        add_post();
+    }
 
+    // SHOW POST DETAILS
+    elseif ($_GET['action'] == 'show_post_details') {
 
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            show_post_details($_GET['id']);
+        } else {
+            echo 'Erreur : aucun identifiant de billet envoyé';
+        }
+    }
 
-//// REMPLACE {LIST_BILLETS} BY CODE
+    // EDIT POST
+    elseif ($_GET['action'] == 'edit_post') {
 
-// GET BILLET HTML CONTENT
-$billets = file_get_contents("list_billets.html");
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            edit_post($_GET['id']);
+        } else {
+            echo 'Erreur : aucun identifiant de billet envoyé';
+        }
 
-// GET BILLETS FROM DATABASE
-try {
-    $bdd = new PDO('mysql:host=localhost; dbname='.$Database_Name, $Database_User, $Database_Password, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
-} catch (Exception $e) {
-    die('Erreur : ' . $e->getMessage());
+    }
+
+    // DELETE POST
+    elseif ($_GET['action'] == 'delete_post') {
+
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            delete_post($_GET['id']);
+        } else {
+            echo 'Erreur : aucun identifiant de billet envoyé';
+        }
+
+    }
+
+    // SHOW NEW POST FORM
+    elseif (($_GET['action'] == 'show_new_post_form')) {
+        show_new_post_form();
+    }
+
+    // ADD COMMENT TO POST
+    elseif ($_GET['action'] == 'add_comment') {
+
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            if (!empty($_POST['author']) && !empty($_POST['comment'])) {
+                addComment($_GET['id'], $_POST['author'], $_POST['comment']);
+            } else {
+                echo 'Erreur : tous les champs ne sont pas remplis !';
+            }
+        } else {
+            echo 'Erreur : aucun identifiant de billet envoyé';
+        }
+
+    }
+
+    // ACCES ADMIN
+    elseif (($_GET['action'] == 'admin')) {
+        admin();
+    }
+
+} else {
+
+    list_posts();
+
 }
-
-// PREPARE QUERY - utilise prepare pour les accents sur les lettres
-$req = $bdd->prepare("SELECT * FROM billets ORDER BY date_creation DESC");
-$req->execute();
-
-// REPLACE CODE {LIST_BILLETS}
-// FETCH QUERY RESULT FROM DATABASE TO $result
-$result = $req->fetchall();
-$bloc_billet = "";
-foreach ($result as $current_result) {
-    $current_billet = $billets;
-    // REPLACE {DATE_BILLET} - BY $current_result["date_creation"] - INSIDE $current_billet
-    $current_billet = str_replace("{DATE_BILLET}", $current_result["date_creation"], $current_billet);
-    $current_billet = str_replace("{TITRE_BILLET}", $current_result["titre"], $current_billet);
-    $current_billet = str_replace("{CONTENU_BILLET}", $current_result["contenu"], $current_billet);
-    $current_billet = str_replace("{ID}", $current_result["id"], $current_billet);
-    $bloc_billet .= $current_billet;
-}
-
-// REMPLACEMENT FINAL AVEC LE CODE FINALE
-$view = str_replace("{LIST_BILLETS}", $bloc_billet, $view);
-
-// MONTRE TOUT LE CODE DE LA PAGE
-echo $view;
-
