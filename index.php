@@ -3,80 +3,43 @@
 <?php
 
 // IMPORT
-require 'controller/post_controller.php';
+require 'controller/index_controller.php';
 
 if (isset($_GET['action'])) {
 
-    // LIST ALL POSTS
-    if ($_GET['action'] == 'list_posts') {
-
-        list_posts();
+    // ACCUEIL
+    if ($_GET['action'] == 'accueil') {
+        accueil();
     }
 
-    // ADD POST TO DATABASE
-    elseif (($_GET['action'] == 'add_post')) {
-        add_post();
+    // BIOGRAPHIE
+    elseif (($_GET['action'] == 'biographie')) {
+        biographie();
     }
 
-    // SHOW POST DETAILS
-    elseif ($_GET['action'] == 'show_post_details') {
-
-        if (isset($_GET['id']) && $_GET['id'] > 0) {
-            show_post_details($_GET['id']);
-        } else {
-            echo 'Erreur : aucun identifiant de billet envoyé';
-        }
+    // BLOG
+    elseif (($_GET['action'] == 'blog')) {
+        blog();
     }
 
-    // EDIT POST
-    elseif ($_GET['action'] == 'edit_post') {
-
-        if (isset($_GET['id']) && $_GET['id'] > 0) {
-            edit_post($_GET['id']);
-        } else {
-            echo 'Erreur : aucun identifiant de billet envoyé';
-        }
-
+    // CONTACT
+    elseif (($_GET['action'] == 'contact')) {
+        contact();
     }
 
-    // DELETE POST
-    elseif ($_GET['action'] == 'delete_post') {
-
-        if (isset($_GET['id']) && $_GET['id'] > 0) {
-            delete_post($_GET['id']);
-        } else {
-            echo 'Erreur : aucun identifiant de billet envoyé';
-        }
-
+    // SE CONNECTER - ACCES ADMIN
+    elseif ($_GET['action'] == 'se_connecter') {
+        se_connecter();
     }
 
-    // SHOW NEW POST FORM
-    elseif (($_GET['action'] == 'show_new_post_form')) {
-        show_new_post_form();
-    }
-
-    // ADD COMMENT TO POST
-    elseif ($_GET['action'] == 'add_comment') {
-
-        if (isset($_GET['id']) && $_GET['id'] > 0) {
-            if (!empty($_POST['author']) && !empty($_POST['comment'])) {
-                addComment($_GET['id'], $_POST['author'], $_POST['comment']);
-            } else {
-                echo 'Erreur : tous les champs ne sont pas remplis !';
-            }
-        } else {
-            echo 'Erreur : aucun identifiant de billet envoyé';
-        }
-
-    }
-
-    // ACCES ADMIN
-    elseif (($_GET['action'] == 'admin')) {
-        admin();
+    
+    // SE CONNECTER - ACCES ADMIN
+    elseif ($_GET['action'] == 'acces_admin') {
+        acces_admin();
     }
 
 } else {
 
-    list_posts();
+    accueil();
 
 }

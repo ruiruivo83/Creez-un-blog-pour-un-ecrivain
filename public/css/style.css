@@ -1,12 +1,47 @@
 body {
-    padding-left: 10%;
-    padding-right: 10%;
-    text-align: center;
+    /*padding-left: 10%;
+    padding-right: 10%;*/
+    /* text-align: center; */
     display: block;
     justify-content: center;
 }
 
+.div_post {
+    
+}
 
 .input_text {
-    width: 1000px;
+    margin: auto;
+    width: 50rem;
+}
+
+.comments {    
+    text-align: left;
+}
+
+.comments .input_text {
+    width: 48rem;
+}
+
+.card_body_comments_container {
+    background-color: aliceblue;
+    width: 99%;
+   margin: auto;
+}
+
+.comments {
+    text-align: left;
+}
+
+.card {
+    margin: auto;
+}
+
+.div_image {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+img {
+    margin: auto;
 }

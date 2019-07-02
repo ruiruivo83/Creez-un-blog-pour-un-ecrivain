@@ -1,14 +1,47 @@
-<div class="card" style="width: 50rem;">   
+<div class="card div_post" style="width: 50rem;">
     <div class="card-body">
-        <h5 class="card-title"><em>{TITRE_BILLET}</em> <br>
-            <h6> Crée le {DATE_BILLET}</h6>
+        <h5 class="card-title"><em>{POST_TITLE}</em> <br>
+            <h6> Billet crée le {POST_DATE}</h6>
         </h5>
-        <p class="card-text">{CONTENU_BILLET}</p>
+        <p class="card-text">{POST_CONTENT}</p>
 
-        <a href="index.php?action=edit_post&id={ID}" class="btn btn-primary">Editer</a>
+        <a href="index.php?action=edit_post&id={ID}" class="btn btn-secondary">Editer</a>
 
-        <a href="index.php?action=delete_post&id={ID}" class="btn btn-primary">Supprimer</a>
+        <a href="index.php?action=delete_post&id={ID}" class="btn btn-danger">Supprimer</a>
 
+    </div>
+    <div class="card-body card_body_comments_container">
+
+        <div class="comments">
+            <form action="model/add_comment.php" method="post" class="form-example">
+
+
+
+                <div class="form-example">
+
+                    <div>
+                        <label for="name">Commentaires: </label>
+                    </div>
+
+                    <div class="form-example">
+                        <label for="name">User Name: </label>
+                        <input type="text" name="UserName" id="UserName" required>
+                    </div>
+
+                    <div class="input_text">
+                        <textarea id="textarea" name="Contenu" required></textarea>
+                    </div>             
+                    
+                </div>
+
+                <div class="form-example validate">
+                    <input type="submit" value="Valider">
+                </div>
+
+            </form>
+        </div>
+
+        {COMMENTS_BODY}
     </div>
 </div>
 <br>

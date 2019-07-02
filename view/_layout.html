@@ -6,22 +6,34 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <!-- LOCAL CSS -->
+    <link rel="stylesheet" type="text/css" href="public/css/style.css">
+
 
     <!-- Tiny MCE -->
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"></script>
     <script>tinymce.init({ selector: 'textarea' });</script>
 
 
-    <title>Title - Mon Super Blog</title>
+    <!-- FONTAWESOME -->
+    <script src="https://kit.fontawesome.com/8163c01118.js"></script>
+
+
+    <title>Jean Forteroche</title>
 </head>
 
 <body>
 
-    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-        <a class="navbar-brand" href="index.php">Mon Super Blog</a>
+    <nav class="navbar navbar-light" style="background-color: #b1b1b1;">
+        <a class="navbar-brand" href="/index.php">
+            <h4>Jean Forteroche</h4>
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -29,21 +41,27 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/index.php">Accueil <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?action=add_post">Ajouter</a>
+                    <a class="nav-link" href="/index.php?action=biographie">Biographie</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?action=admin">Admin</a>
+                    <a class="nav-link" href="/index.php?action=blog">Blog</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
+                    <a class="nav-link" href="/index.php?action=contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/index.php?action=se_connecter">Se Connecter</a>
                 </li>
             </ul>
         </div>
     </nav>
 
+    <div class="div_image">
+        <img src="public/images/typewriter-1240422.jpg" class="img-fluid" alt="Responsive image">
+    </div>
 
     <div class="text-center">
         <div>
