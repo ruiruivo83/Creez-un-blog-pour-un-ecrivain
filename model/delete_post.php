@@ -10,5 +10,5 @@ function delete_post_model($id)
 
     $req->execute();
 
-    header("Location: index.php");
+    header("Location: index.php?action=acces_admin");
 }

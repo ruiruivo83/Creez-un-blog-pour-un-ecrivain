@@ -1,10 +1,10 @@
+<!-- MODEL -->
 <?php
 
 function get_posts()
 {
 
-    require "config.php";
-    $post_default_code = file_get_contents("view/post_default_code.html");
+    require "config.php";   
 
     // GET BILLETS FROM DATABASE
     try {

@@ -12,6 +12,11 @@ if (isset($_GET['action'])) {
         accueil();
     }
 
+    // LOGOUT
+    elseif (($_GET['action'] == 'logout')) {
+        logout();
+    }
+
     // BIOGRAPHIE
     elseif (($_GET['action'] == 'biographie')) {
         biographie();
@@ -28,14 +33,40 @@ if (isset($_GET['action'])) {
     }
 
     // SE CONNECTER - ACCES ADMIN
-    elseif ($_GET['action'] == 'se_connecter') {
-        se_connecter();
+    elseif ($_GET['action'] == 'login') {
+        login();
     }
 
-    
+    // S'ENREGISTRER
+    elseif ($_GET['action'] == 'register') {
+        register();
+    }
+
     // SE CONNECTER - ACCES ADMIN
     elseif ($_GET['action'] == 'acces_admin') {
         acces_admin();
+    }
+
+    // EDIT POST
+    elseif ($_GET['action'] == 'edit_post') {
+
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            edit_post($_GET['id']);
+        } else {
+            echo 'Erreur : aucun identifiant de billet envoyé';
+        }
+        
+    }
+
+    // DELETE POST
+    elseif ($_GET['action'] == 'delete_post') {
+
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            delete_post($_GET['id']);
+        } else {
+            echo 'Erreur : aucun identifiant de billet envoyé';
+        }
+
     }
 
 } else {
