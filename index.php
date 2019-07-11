@@ -32,7 +32,11 @@ if (isset($_GET['action'])) {
     }
 
     if ($_GET['action'] == 'admin') {
-        admin();
+
+       
+            admin();
+       
+       
     }
 
     // EDIT POST
@@ -76,6 +80,18 @@ if (isset($_GET['action'])) {
 
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             validate_comment($_GET['id']);
+        } else {
+            echo 'Erreur : aucun identifiant de commentaire envoyé';
+        }
+
+    }
+
+    // VALIDATE COMMENT
+    if ($_GET['action'] == 'apply_urgent') {
+   
+
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            apply_urgent($_GET['id']);
         } else {
             echo 'Erreur : aucun identifiant de commentaire envoyé';
         }
