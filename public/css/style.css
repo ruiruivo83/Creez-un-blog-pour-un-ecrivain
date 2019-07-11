@@ -6,13 +6,17 @@ body {
     justify-content: center;
 }
 
+.jumbotron {
+    margin-bottom: 50px;
+}
+
 .div_post {
     background-color: rgba(154, 174, 175, 0.548);
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    align-content: center;
+    align-content: center;    
 }
 
 .input_text {
@@ -29,6 +33,7 @@ body {
 .comments .validate {
     text-align: right;
     margin: 20px;
+   
 }
 
 .comments .input_text {
@@ -99,4 +104,9 @@ form {
     margin-top: 100px;  
     border-radius: 5px;  
     padding: 10px;
+}
+
+.div_comment {
+    background-color: rgba(248, 248, 220, 0.486);
+    margin: 20px;    
 }

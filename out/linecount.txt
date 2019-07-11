@@ -1,0 +1,37 @@
+===============================================================================
+EXTENSION NAME : linecount
+EXTENSION VERSION : 0.1.7
+-------------------------------------------------------------------------------
+count time : 2019-07-10 17:20:26
+count workspace : c:\Users\Administrator\Dropbox\OPENCLASSROOMS\PROJET - P4\Creez un blog pour un ecrivain\build03\test03
+total files : 25
+total code lines : 508
+total comment lines : 69
+total blank lines : 250
+
+config.php, code is 4, comment is 9, blank is 3.
+controller\index_controller.php, code is 112, comment is 9, blank is 30.
+index.php, code is 28, comment is 1, blank is 13.
+js\validatePassword.js, code is 11, comment is 0, blank is 5.
+model\add_comment.php, code is 25, comment is 3, blank is 34.
+model\add_post.php, code is 15, comment is 3, blank is 15.
+model\get_comments.php, code is 14, comment is 4, blank is 10.
+model\get_posts.php, code is 15, comment is 4, blank is 7.
+model\login_validation.php, code is 37, comment is 8, blank is 22.
+model\logout.php, code is 4, comment is 7, blank is 5.
+model\register_user.php, code is 18, comment is 4, blank is 20.
+public\css\style.css, code is 84, comment is 3, blank is 25.
+view\_layout.html, code is 34, comment is 7, blank is 25.
+view\accueil.html, code is 1, comment is 0, blank is 0.
+view\add_comment.html, code is 20, comment is 1, blank is 8.
+view\add_post.html, code is 15, comment is 1, blank is 4.
+view\biographie.html, code is 1, comment is 0, blank is 0.
+view\blog.html, code is 2, comment is 2, blank is 1.
+view\button_logout.html, code is 7, comment is 0, blank is 3.
+view\comment_default_code.html, code is 10, comment is 0, blank is 0.
+view\contact.html, code is 1, comment is 0, blank is 0.
+view\login.html, code is 21, comment is 0, blank is 4.
+view\nav_user_option.html, code is 2, comment is 0, blank is 0.
+view\post_default_code.html, code is 17, comment is 2, blank is 10.
+view\register.html, code is 10, comment is 1, blank is 6.
+===============================================================================

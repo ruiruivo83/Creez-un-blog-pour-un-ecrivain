@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" AND isset($_POST["Titre"])) {
 
     $req->execute(array($Titre, $Contenu));
 
-    header('Location: ../index.php?action=acces_admin');
+    header('Location: ../index.php?action=blog');
 
     exit();
 

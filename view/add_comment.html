@@ -1,0 +1,24 @@
+ <!-- ADD COMMENT FORM -->
+ <form action="model/add_comment.php" method="post" class="form-example">
+
+    <div class="form-example">
+
+        <div>
+            <input type="text" name="PostId" id="PostId" value="{POST_ID}" hidden>
+        </div>      
+
+        <div class="form-example">            
+            <input type="text" name="UserName" id="UserName" value="{USERNAME}" hidden>
+        </div>
+
+        <div class="form-example input_text">
+            <textarea name="Comment" id="textarea"></textarea>
+        </div>
+
+    </div>
+
+    <div class="form-example validate">
+        <input type="submit" value="Ajouter Commentaire:">
+    </div>
+
+</form>

@@ -1,0 +1,64 @@
+<form action="model/register_user.php" method="post">
+    <div class="register_container">
+
+        <h1>S'enregistrer</h1>
+        <p>Veuillez introduir vos données pour vous enregistrer.</p>
+        <hr>
+
+        <div>
+
+            <div class="div_credentials">
+                <label for="prenom"><b>Prenom</b></label>
+                <!--name: prenom -->
+                <input type="text" placeholder="Prenom" name="prenom" required>
+            </div>
+            <br>
+
+            <div class="div_credentials">
+                <label for="Nom"><b>Nom</b></label>
+                <!--name: nom -->
+                <input type="text" placeholder="nom" name="nom" required>
+            </div>
+            <br>
+
+            <div class="div_credentials">
+                <label for="email"><b>Email</b></label>
+                <!--name: email -->
+                <input type="text" placeholder="Email" name="email" required>
+            </div>
+            <br>
+
+            <fieldset>
+
+                <div class="div_credentials">
+                    <label for="psw"><b>Password</b></label>
+                    <!--password: psw -->
+                    <input type="password" placeholder="Password" id="password" name="psw" required>
+                </div>
+                <br>
+
+                <div class="div_credentials">
+                    <label for="psw-repeat"><b>Repeat Password</b></label>
+                    <!--password repeat: psw-repeat -->
+                    <input type="password" placeholder="Confirmer Password" id="confirm_password" name="psw-repeat"
+                        required>                   
+                </div>
+                <br>
+
+            </fieldset>
+
+            <p>By creating an account you agree to our: <a href="#">Terms & Privacy</a>.</p>
+            <button type="submit" class="registerbtn">S'enregistrer</button>
+
+        </div>
+
+        <div class="container signin">
+            <p>Already have an account? <a href="index.php?action=login">Login</a>.</p>
+        </div>
+        
+    </div>
+</form>
+
+
+ <!-- Local Javascript -->
+ <script type="text/javascript" src="/js/validatePassword.js"></script>

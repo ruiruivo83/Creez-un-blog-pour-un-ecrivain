@@ -36,7 +36,7 @@ function update_post()
 
     }
 
-    header("Location: ../index.php?action=acces_admin");
+    header("Location: ../index.php?action=blog");
 
     
     exit();

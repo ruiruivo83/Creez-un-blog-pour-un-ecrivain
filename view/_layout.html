@@ -18,66 +18,32 @@
 
     <!-- Tiny MCE -->
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"></script>
-    <script>tinymce.init({ selector: 'textarea' });</script>
+    <script>tinymce.init({ selector: 'textarea', menubar: false, toolbar: '' });</script>
 
 
     <!-- FONTAWESOME -->
     <script src="https://kit.fontawesome.com/8163c01118.js"></script>
 
-
-
+    
     <title>Jean Forteroche</title>
 </head>
 
 <body>
 
-    <nav class="navbar navbar-light" style="background-color: #b1b1b1;">
-        <a class="navbar-brand" href="/index.php">
 
-
-            <h4>Jean Forteroche</h4>
-
-
-
-            {HELLO_USER}
-
-
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/index.php">Accueil <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/index.php?action=biographie">Biographie</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/index.php?action=blog">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/index.php?action=contact">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/index.php?action=login">Se connecter</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/index.php?action=register">S'enregistrer</a>
-                </li>
-            </ul>
-        </div>
+    <nav class="nav">
+        <a class="nav-link active" href="index.php?action=accueil">Accueil</a>
+        <a class="nav-link" href="index.php?action=biographie">Biographie</a>
+        <a class="nav-link" href="index.php?action=blog">Blog</a>
+        <a class="nav-link" href="index.php?action=contact">Contact</a>
+        {ADMIN}
+        {USER_BLOC}
     </nav>
 
 
 
-    <div class="text-center">
-        <div>
-            {CONTENT}
-        </div>
-    </div>
+    {CONTENT}
+
 
 
     <!-- Optional JavaScript -->

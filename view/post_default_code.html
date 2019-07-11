@@ -5,9 +5,11 @@
         </h5>
         <p class="card-text">{POST_CONTENT}</p>
 
-        <a href="index.php?action=edit_post&id={ID}" class="btn btn-secondary">Editer</a>
+        {BUTTON_EDIT_POST}
 
-        <a href="index.php?action=delete_post&id={ID}" class="btn btn-danger">Supprimer</a>
+        {BUTTON_DELETE_POST}
+
+        
 
     </div>
 
@@ -15,43 +17,15 @@
 
     <div class="card-body card_body_comments_container">
         <div class="comments">
-
-            <!-- ADD COMMENT FORM -->
-            <form action="model/add_comment.php" method="post" class="form-example">
-
-                <div class="form-example">
-
-                    <div>
-                        <input type="text" name="PostId" id="PostId" value="{POST_ID}" >
-                    </div>
-
-                    <div>
-                        <label for="UserName">Commentaires: </label>
-                    </div>
-
-                    <div class="form-example">
-                        <label for="UserName">User Name: </label>
-                        <input type="text" name="UserName" id="UserName" required>
-                    </div>
-
-                    <div class="form-example input_text">
-                        <textarea name="Comment" id="textarea" ></textarea>
-                    </div>
-
-                </div>
-
-                <div class="form-example validate">
-                    <input type="submit" value="Ajouter Commentaire: ">
-                </div>
-
-            </form>
-
         </div>
 
+        <!-- ALL USERS -->
         {COMMENTS_BODY}
+
+        <!-- IF REGISTERED -->
+        {ADD_COMMENTS}
+
     </div>
-
-
 
 </div>
 <br>
