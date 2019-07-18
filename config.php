@@ -1,9 +1,15 @@
 <?php
 
-// LOCAL DATABASE
-$Database_Name = "blog";
-$Database_User = "root";
-$Database_Password = "";
+class config {
+
+    // LOCAL DATABASE
+public $Database_Name = "blog";
+public $Database_User = "root";
+public $Database_Password = "";
+
+}
+
+
 
 
 // REMOTE DATABASE

@@ -1,16 +1,15 @@
 <?php
 
-session_start();
+class Logout
+{
 
-// NOT NECESSARY
-/*
-$_SESSION['db_email'] = null;
-$_SESSION['db_prenom'] = null;
-$_SESSION['db_nom'] = null;
-$_SESSION['db_date_creation'] = null;
-*/
+    public function userLogout()
+    {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }    
+        session_destroy();
+        header('Location: ../index.php');
+    }
 
-
-session_destroy();
-
-header('Location: ../index.php');
+}
