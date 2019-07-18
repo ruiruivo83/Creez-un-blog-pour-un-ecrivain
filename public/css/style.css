@@ -1,0 +1,112 @@
+body {
+    /*padding-left: 10%;
+    padding-right: 10%;*/
+    /* text-align: center; */
+    display: block;
+    justify-content: center;
+}
+
+.jumbotron {
+    margin-bottom: 50px;
+}
+
+.div_post {
+    background-color: rgba(154, 174, 175, 0.548);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;    
+}
+
+.input_text {
+    margin: auto;
+    width: 100%;
+    max-width: 1200px;
+    font-size: 11px;
+}
+
+.comments {
+    text-align: left;
+}
+
+.comments .validate {
+    text-align: right;
+    margin: 20px;
+   
+}
+
+.comments .input_text {
+    width: 100%;
+}
+
+.card_body_comments_container {
+    background-color: rgba(255, 251, 240, 0.534);
+    width: 80%;
+    margin: 20px;
+}
+
+.card {
+    margin: auto;
+}
+
+.div_image {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+
+img {
+    margin: auto;
+}
+
+
+.tox {
+    width: 100%;
+}
+
+
+.div_add_form {
+    border-color: rgba(58, 58, 58, 0.61);
+    border-style: solid;
+    border-width: 1px;
+    margin-bottom: 40px;
+    padding: 20px;
+}
+
+
+.div_credentials {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+form {    
+    text-align: center;
+}
+
+
+.register_container {    
+    background-color: rgba(115, 123, 139, 0.192);
+    width: 480px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+
+.login_container {       
+    background-color: rgba(115, 123, 139, 0.192);  
+    width: 400px;
+    margin: auto;
+    margin-top: 100px;  
+    border-radius: 5px;  
+    padding: 10px;
+}
+
+.div_comment {
+    background-color: rgba(248, 248, 220, 0.486);
+    margin: 20px;    
+}
