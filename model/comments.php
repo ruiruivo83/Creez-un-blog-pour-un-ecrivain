@@ -17,7 +17,7 @@ class Comments
         }
 
         // PREPARE QUERY - utilise prepare pour les accents sur les lettres
-        $req = $bdd->prepare("SELECT * FROM comments WHERE post_id = '$post_id' AND valide = 1 ORDER BY date_creation DESC");
+        $req = $bdd->prepare("SELECT * FROM comments WHERE post_id = '$post_id' AND valide = 1 AND signale = 0 ORDER BY date_creation DESC");
         $req->execute();
 
         // REPLACE CODE {LIST_BILLETS}
@@ -102,7 +102,26 @@ class Comments
         $config = new Config();
 
         $bdd = new PDO('mysql:host=localhost;dbname=' . $config->Database_Name, $config->Database_User, $config->Database_Password);
-        $req = $bdd->prepare("UPDATE comments SET valide=1 WHERE id=?");
+        $req = $bdd->prepare("UPDATE comments SET valide=1, signale=0 WHERE id=?");
+
+        // $req = $bdd->prepare("UPDATE INTO billets(titre, contenu, date_creation) values (?, ?, NOW())");
+        $req->execute(array($id));
+
+        // var_dump($bdd->errorInfo());
+        // var_dump($req->errorInfo());
+
+        header("Location: ../index.php?action=admin");
+
+        exit();
+    }
+
+    public function SignalComment($id)
+    {
+        // require "config.php";
+        $config = new Config();
+
+        $bdd = new PDO('mysql:host=localhost;dbname=' . $config->Database_Name, $config->Database_User, $config->Database_Password);
+        $req = $bdd->prepare("UPDATE comments SET signale=1 WHERE id=?");
 
         // $req = $bdd->prepare("UPDATE INTO billets(titre, contenu, date_creation) values (?, ?, NOW())");
         $req->execute(array($id));

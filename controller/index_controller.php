@@ -119,6 +119,8 @@ class index_controller
             $ValidationBuild = new ValidationBuild();
             $list_non_validated_comments = $ValidationBuild->BuildNonValidatedCommentList_model();
             $view = str_replace("{COMMENTS_TO_VALIDATE}", $list_non_validated_comments, $view);
+        } else {
+            $view = str_replace("{COMMENTS_TO_VALIDATE}", "", $view);
         }
 
         // Build button to validate comments
@@ -160,6 +162,12 @@ class index_controller
     {
         $post = new Comments();
         $post->ValidateComment($id);
+    }
+
+    public function signal_comment($id)
+    {
+        $post = new Comments();
+        $post->SignalComment($id);
     }
 
     // _________________________________________________
@@ -215,8 +223,8 @@ class index_controller
 
                 if ($_SESSION['db_admin'] == 1) {
                     // DECLARE edit and delete post buttons code
-                    $button_edit_post = "<a href=\"index.php?action=edit_post&id={ID}\" class=\"btn btn-secondary\">Editer</a>";
-                    $button_delete_post = "<a href=\"index.php?action=delete_post&id={ID}\" class=\"btn btn-danger\">Supprimer</a>";
+                    $button_edit_post = "<a href=\"index.php?action=edit_post&id={ID}\" class=\"btn btn-secondary btn-sm\">Editer</a>";
+                    $button_delete_post = "<a href=\"index.php?action=delete_post&id={ID}\" class=\"btn btn-danger btn-sm\">Supprimer</a>";
                     // REPLACE {BOUTON_EDITER_BILLET}
                     $current_billet = str_replace("{BUTTON_EDIT_POST}", $button_edit_post, $current_billet);
                     // REPLACE {BOUTON_SUPPRIMER_BILLET}
@@ -263,13 +271,20 @@ class index_controller
             $current_comment = str_replace("{COMMENT_USER}", $current_result["username"], $current_comment);
             $current_comment = str_replace("{COMMENT_DATE_CREATION}", $current_result["date_creation"], $current_comment);
             $current_comment = str_replace("{COMMENT_CONTENT}", $current_result["contenu"], $current_comment);
-
+            
             if (isset($_SESSION['db_email']) && $_SESSION['db_admin'] == 1) {
                 $id = $current_result["id"];
-                $delete_comment_button = "<a href=\"index.php?action=delete_comment&id=" . $id . "\" class=\"btn btn-danger\">Supprimer</a>";
+                // DELETE BUTTON
+                $delete_comment_button = "<a href=\"index.php?action=delete_comment&id=" . $id . "\" class=\"btn btn-danger btn-sm\">Supprimer</a>";
                 $current_comment = str_replace("{DELETE_COMMENT}", $delete_comment_button, $current_comment);
+                // SIGNAL BUTTON
+                $signal_comment_button = "<a href=\"index.php?action=signal_comment&id=" . $id . "\" class=\"btn btn-warning btn-sm\">Signale</a>";
+                $current_comment = str_replace("{SIGNAL_COMMENT}", $signal_comment_button, $current_comment);
             } else {
+                $id = $current_result["id"];
                 $current_comment = str_replace("{DELETE_COMMENT}", "", $current_comment);
+                $signal_comment_button = "<a href=\"index.php?action=signal_comment&id=" . $id . "\" class=\"btn btn-warning btn-sm\">Signale</a>";
+                $current_comment = str_replace("{SIGNAL_COMMENT}", $signal_comment_button, $current_comment);
             }
 
             $List_Comments .= $current_comment;
@@ -292,7 +307,7 @@ class index_controller
                 $current_comment = str_replace("{COMMENT_CONTENT}", $current_result["contenu"], $current_comment);
 
                 $id = $current_result["id"];
-                $link_to_apply_urgent = "<a href=\"index.php?action=apply_urgent&id=" . $id . "\" class=\"btn btn-danger\">Demander a valider</a>";
+                $link_to_apply_urgent = "<a href=\"index.php?action=apply_urgent&id=" . $id . "\" class=\"btn btn-danger btn-sm\">Demander a valider</a>";
                 $current_comment = str_replace("{APPLY_URGENT}", $link_to_apply_urgent, $current_comment);
 
                 /*

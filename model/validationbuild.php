@@ -16,8 +16,8 @@ class ValidationBuild
 
             if (isset($_SESSION['db_email']) && $_SESSION['db_admin'] == 1) {
                 $id = $current_result["id"];
-                $delete_comment_button = "<a href=\"index.php?action=delete_comment&id=" . $id . "\" class=\"btn btn-danger\">Supprimer</a>";
-                $validate_comment_button = "<a href=\"index.php?action=validate_comment&id=" . $id . "\" class=\"btn btn-success\">Valider</a>";
+                $delete_comment_button = "<a href=\"index.php?action=delete_comment&id=" . $id . "\" class=\"btn btn-danger btn-sm\">Supprimer</a>";
+                $validate_comment_button = "<a href=\"index.php?action=validate_comment&id=" . $id . "\" class=\"btn btn-success btn-sm\">Valider</a>";
                 $current_comment = str_replace("{DELETE_COMMENT}", $delete_comment_button, $current_comment);
                 $current_comment = str_replace("{VALIDATE_COMMENT}", $validate_comment_button, $current_comment);
             } else {
@@ -44,7 +44,7 @@ class ValidationBuild
         }
 
         // PREPARE QUERY - utilise prepare pour les accents sur les lettres
-        $req = $bdd->prepare("SELECT * FROM comments WHERE valide = 0 ORDER BY date_creation DESC");
+        $req = $bdd->prepare("SELECT * FROM comments WHERE valide = 0 OR signale = 1 ORDER BY date_creation DESC");
         $req->execute();
 
         // REPLACE CODE {LIST_BILLETS}
@@ -54,5 +54,11 @@ class ValidationBuild
         return $result;
 
     }
+
+
+  
+
+
+
 
 }

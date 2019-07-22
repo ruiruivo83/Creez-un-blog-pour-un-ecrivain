@@ -61,6 +61,17 @@ class Router
                 }
             }
 
+            // SIGNAL COMMENT
+            // signal_comment
+            if ($_GET['action'] == 'signal_comment') {
+
+                if (isset($_GET['id']) && $_GET['id'] > 0) {
+                    $c->signal_comment($_GET['id']);
+                } else {
+                    echo 'Aucun identifiant de commentaire envoyé';
+                }
+            }
+
             if ($_GET['action'] == 'login_validation') {
                 $c->login_validation();
             }

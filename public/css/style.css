@@ -6,15 +6,179 @@ body {
     justify-content: center;
 }
 
+.top {
+    width: 100%;
+}
+
+.content_container {
+    background-color: rgba(255, 255, 255, 0.116);
+    width: 1200px;
+    margin: auto;
+}
+
+body, html {
+    height: 100%;
+    /* The image used */
+    background-image: url("/public/images/AlaskaBG01.jpg");
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.div_post {
+    margin-left: 200px;
+    margin-right: 200px;
+    padding: 30px;
+}
+
+.card_body_comments_container {
+    /* background-color: red; */
+    /* display: flex; */
+}
+
+.card_body_comments_container .div_comment {
+    background-color: rgba(94, 255, 0, 0.048);
+    width: 450px;
+}
+
+.div_add_form {
+    background-color: rgba(73, 113, 129, 0.404);
+    margin-left: 200px;
+    margin-right: 200px;
+    padding: 20px;
+    margin-bottom: 50px;
+}
+
+.new_post_title {
+    margin-left: 50px;
+}
+
+.div_comment {
+    max-width: 900px;
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+.div_post .div_comment {
+    margin: 10px;
+}
+
+.nav {
+    background-color: rgba(107, 114, 114, 0.445);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    width: 1200px;
+    margin: auto;
+}
+
+a, a:link, a:visited, a:active {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+a:hover {
+    color: rgba(255, 255, 255, 0.562);
+    font-weight: bold;
+}
+
+.btn {
+    margin: 3px;
+}
+
+.validate {
+    margin-top: 5px;
+}
+
+.page_main_container {
+    background-color: rgba(255, 255, 255, 0.815);
+    margin: auto;
+    margin-top: 50px;
+    max-width: 800px;   
+    text-align: center;
+    padding: 10px;
+}
+
+.register_container {
+    margin: 200px;
+    /* margin-top: 100px; */
+    padding: 30px;
+}
+
+.div_credentials {
+    display: flex;
+}
+
+.div_credentials input {
+    height: 25px;
+    width: 200px;
+}
+
+.credentials_label {
+    width: 170px;
+}
+
+.credentials_input {
+    width: 180px;
+}
+
+
+
+
+
+
+/* Style inputs with type="text", select elements and textareas */
+input[type=text], select, textarea {
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */  
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+  }
+  
+  /* Style the submit button with a specific background color etc */
+  input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* When moving the mouse over the submit button, add a darker green color */
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
+  /* Add a background color and some padding around the form */
+  .container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+
+
+
+/*
 .jumbotron {
     margin-bottom: 50px;
 }
+
 
 .div_post {
     background-color: rgba(154, 174, 175, 0.548);
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     align-content: center;    
 }
@@ -110,3 +274,36 @@ form {
     background-color: rgba(248, 248, 220, 0.486);
     margin: 20px;    
 }
+
+.accueil_container {
+    background-color: rgba(255, 0, 0, 0.356);
+}
+
+.accueil_front_div {
+    background-color: rgba(0, 128, 0, 0.288);
+    width: 90%;
+    margin: auto;
+}
+
+.image_container {
+    background-color: rgba(0, 0, 255, 0.329);
+    width: 90%;
+    margin: auto; 
+    text-align: right;
+}
+
+.div_comment_options {   
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.div_delete_comment {    
+    width: 100px;
+}
+
+.div_signal_comment {  
+    width: 77px;
+    margin-left: 10px;
+}
+
+*/

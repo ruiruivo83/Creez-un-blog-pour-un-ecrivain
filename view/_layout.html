@@ -24,27 +24,29 @@
     <!-- FONTAWESOME -->
     <script src="https://kit.fontawesome.com/8163c01118.js"></script>
 
-    
+
     <title>Jean Forteroche</title>
 </head>
 
 <body>
+    <div class="top">
 
+        <nav class="nav">
+            <a class="nav-link active" href="index.php?action=accueil">Accueil</a>
+            <a class="nav-link" href="index.php?action=biographie">Biographie</a>
+            <a class="nav-link" href="index.php?action=blog">Blog</a>
+            <a class="nav-link" href="index.php?action=contact">Contact</a>
+            {ADMIN}
+            {USER_BLOC}
+        </nav>
 
-    <nav class="nav">
-        <a class="nav-link active" href="index.php?action=accueil">Accueil</a>
-        <a class="nav-link" href="index.php?action=biographie">Biographie</a>
-        <a class="nav-link" href="index.php?action=blog">Blog</a>
-        <a class="nav-link" href="index.php?action=contact">Contact</a>
-        {ADMIN}
-        {USER_BLOC}
-    </nav>
+    </div>
 
+    <div class="content_container">
 
+        {CONTENT}
 
-    {CONTENT}
-
-
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

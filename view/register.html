@@ -1,47 +1,56 @@
-<form action="index.php?action=registernewuser" method="post">
-    <div class="register_container">
+<div class="page_main_container">
+    <form action="index.php?action=registernewuser" method="post">
+        <div class="register_container">
 
-        <h1>S'enregistrer</h1>
-        <p>Veuillez introduir vos données pour vous enregistrer.</p>
-        <hr>
+            <h1>S'enregistrer</h1>
+            <p>Veuillez introduir vos données pour vous enregistrer.</p>
+            <hr>
 
-        <div>
+            <div>
 
-            <div class="div_credentials">
-                <label for="prenom"><b>Prenom</b></label>
-                <!--name: prenom -->
-                <input type="text" placeholder="Prenom" name="prenom" required>
+                <div class="div_credentials">
+                    <div class="credentials_label"><label for="prenom"><b>Prenom</b></label></div>
+                    <div class="credentials_input">
+                        <!--name: prenom -->
+                        <input type="text" placeholder="Prenom" name="prenom" required></div>
+                </div>
+
+
             </div>
             <br>
 
             <div class="div_credentials">
-                <label for="Nom"><b>Nom</b></label>
-                <!--name: nom -->
-                <input type="text" placeholder="nom" name="nom" required>
+                <div class="credentials_label"><label for="Nom"><b>Nom</b></label></div>
+                <div class="credentials_input">
+                    <!--name: nom -->
+                    <input type="text" placeholder="nom" name="nom" required></div>
             </div>
             <br>
 
             <div class="div_credentials">
-                <label for="email"><b>Email</b></label>
-                <!--name: email -->
-                <input type="text" placeholder="Email" name="email" required>
+                <div class="credentials_label"><label for="email"><b>Email</b></label></div>
+                <div class="credentials_input">
+                    <!--name: email -->
+                    <input type="text" placeholder="Email" name="email" required></div>
             </div>
             <br>
 
             <fieldset>
 
                 <div class="div_credentials">
-                    <label for="psw"><b>Password</b></label>
-                    <!--password: psw -->
-                    <input type="password" placeholder="Password" id="password" name="psw" required>
+                    <div class="credentials_label"><label for="psw"><b>Password</b></label></div>
+                    <div class="credentials_input">
+                        <!--password: psw -->
+                        <input type="password" placeholder="Password" id="password" name="psw" required></div>
                 </div>
                 <br>
 
                 <div class="div_credentials">
-                    <label for="psw-repeat"><b>Repeat Password</b></label>
-                    <!--password repeat: psw-repeat -->
-                    <input type="password" placeholder="Confirmer Password" id="confirm_password" name="psw-repeat"
-                        required>                   
+                    <div class="credentials_label"><label for="psw-repeat"><b>Repeat Password</b></label></div>
+                    <div class="credentials_input">
+                        <!--password repeat: psw-repeat -->
+                        <input type="password" placeholder="Confirmer Password" id="confirm_password" name="psw-repeat"
+                            required></div>
                 </div>
                 <br>
 
@@ -55,10 +64,10 @@
         <div class="container signin">
             <p>Already have an account? <a href="index.php?action=login">Login</a>.</p>
         </div>
-        
-    </div>
+
+</div>
 </form>
 
-
- <!-- Local Javascript -->
- <script type="text/javascript" src="/js/validatePassword.js"></script>
+</div>
+<!-- Local Javascript -->
+<script type="text/javascript" src="/js/validatePassword.js"></script>
