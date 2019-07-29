@@ -4,20 +4,23 @@
         <label for="name">Titre du billet: </label>
         {INPUT_TITRE}
         <br>
-        <div>ID: {INPUT_ID}</div>
+        <div>{INPUT_ID}</div>
         <!-- <input type="text" name="Titre" id="Titre" required> -->
     </div>
 
     <div class="form-example">
         <label for="name">Contenu: </label>
         <br>
-        {INPUT_CONTENU}
+        <div class="container_middle">
+            <div class="edit_post_content">
+                {INPUT_CONTENU}
+            </div>
+        </div>
         <!-- <div class="input_text"> <textarea id="textarea" name="Contenu" required></textarea></div> -->
         <br>
     </div>
 
     <div class="form-example">
-
         <input type="submit" name="update_post" value="Editer">
     </div>
 

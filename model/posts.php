@@ -103,7 +103,7 @@ class Posts
 
         foreach ($result as $current_result) {
             $edit_post_default_code = str_replace("{INPUT_TITRE}", '<input type="text" name="titre" id="Titre" value="' . $current_result["titre"] . '" required>', $edit_post_default_code);
-            $edit_post_default_code = str_replace("{INPUT_ID}", '<input type="text" name="id" id="Id" value="' . $id . '" required>', $edit_post_default_code);
+            $edit_post_default_code = str_replace("{INPUT_ID}", '<input type="text" name="id" id="Id" value="' . $id . '" required hidden>', $edit_post_default_code);
             $edit_post_default_code = str_replace("{INPUT_CONTENU}", '<div class="input_text"> <textarea id="textarea" name="contenu" required>' . $current_result["contenu"] . '</textarea></div>', $edit_post_default_code);
             $edit_post_default_code = str_replace("{ID}", $id, $edit_post_default_code);
         }

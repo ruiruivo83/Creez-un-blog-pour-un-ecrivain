@@ -1,63 +1,68 @@
 <div class="page_main_container">
     <form action="index.php?action=registernewuser" method="post">
-        <div class="register_container">
-
             <h1>S'enregistrer</h1>
             <p>Veuillez introduir vos données pour vous enregistrer.</p>
             <hr>
-
-            <div>
-
-                <div class="div_credentials">
-                    <div class="credentials_label"><label for="prenom"><b>Prenom</b></label></div>
-                    <div class="credentials_input">
-                        <!--name: prenom -->
-                        <input type="text" placeholder="Prenom" name="prenom" required></div>
-                </div>
+        <div class="register_container">
 
 
-            </div>
-            <br>
 
-            <div class="div_credentials">
-                <div class="credentials_label"><label for="Nom"><b>Nom</b></label></div>
-                <div class="credentials_input">
-                    <!--name: nom -->
-                    <input type="text" placeholder="nom" name="nom" required></div>
-            </div>
-            <br>
+          
+            <div class="register_bloc">
+                <div>
 
-            <div class="div_credentials">
-                <div class="credentials_label"><label for="email"><b>Email</b></label></div>
-                <div class="credentials_input">
-                    <!--name: email -->
-                    <input type="text" placeholder="Email" name="email" required></div>
-            </div>
-            <br>
+                    <div class="div_credentials">
+                        <div class="credentials_label"><label for="prenom"><b>Prenom</b></label></div>
+                        <div class="credentials_input">
+                            <!--name: prenom -->
+                            <input type="text" placeholder="Prenom" name="prenom" required></div>
+                    </div>
 
-            <fieldset>
 
-                <div class="div_credentials">
-                    <div class="credentials_label"><label for="psw"><b>Password</b></label></div>
-                    <div class="credentials_input">
-                        <!--password: psw -->
-                        <input type="password" placeholder="Password" id="password" name="psw" required></div>
                 </div>
                 <br>
 
                 <div class="div_credentials">
-                    <div class="credentials_label"><label for="psw-repeat"><b>Repeat Password</b></label></div>
+                    <div class="credentials_label"><label for="Nom"><b>Nom</b></label></div>
                     <div class="credentials_input">
-                        <!--password repeat: psw-repeat -->
-                        <input type="password" placeholder="Confirmer Password" id="confirm_password" name="psw-repeat"
-                            required></div>
+                        <!--name: nom -->
+                        <input type="text" placeholder="nom" name="nom" required></div>
                 </div>
                 <br>
 
-            </fieldset>
+                <div class="div_credentials">
+                    <div class="credentials_label"><label for="email"><b>Email</b></label></div>
+                    <div class="credentials_input">
+                        <!--name: email -->
+                        <input type="text" placeholder="Email" name="email" required></div>
+                </div>
+                <br>
 
-            <p>By creating an account you agree to our: <a href="#">Terms & Privacy</a>.</p>
-            <button type="submit" class="registerbtn">S'enregistrer</button>
+                <fieldset>
+
+                    <div class="div_credentials">
+                        <div class="credentials_label"><label for="psw"><b>Password</b></label></div>
+                        <div class="credentials_input">
+                            <!--password: psw -->
+                            <input type="password" placeholder="Password" id="password" name="psw" required></div>
+                    </div>
+                    <br>
+
+                    <div class="div_credentials">
+                        <div class="credentials_label"><label for="psw-repeat"><b>Repeat Password</b></label></div>
+                        <div class="credentials_input">
+                            <!--password repeat: psw-repeat -->
+                            <input type="password" placeholder="Confirmer Password" id="confirm_password"
+                                name="psw-repeat" required></div>
+                    </div>
+                    <br>
+
+                </fieldset>
+
+                <p>By creating an account you agree to our: <a href="#">Terms & Privacy</a>.</p>
+                <button type="submit" class="registerbtn">S'enregistrer</button>
+
+            </div>
 
         </div>
 

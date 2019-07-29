@@ -51,6 +51,10 @@ class Router
                 $c->admin();
             }
 
+            if ($_GET['action'] == 'user_info') {
+                $c->user_info();
+            }
+
             // VALIDATE COMMENT
             if ($_GET['action'] == 'validate_comment') {
 

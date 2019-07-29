@@ -57,6 +57,11 @@ class Comments
 
     public function add_Comment()
     {
+
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
         // require "config.php";
         $config = new Config();
 
@@ -76,6 +81,14 @@ class Comments
         // BOUTON - INSERT TO DATABASE
         if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST["UserName"])) {
 
+            if ($_SESSION["db_admin"] == 1) {
+                $Signale = 0;
+                $Valide = 1;
+            } else {
+                $Signale = 1;
+                $Valide = 0;
+            }
+
             // $this->console_log("INSIDE IF");
 
             $UserName = $_POST["UserName"];
@@ -86,9 +99,9 @@ class Comments
 
             // PREPARE QUERY - use prepare pour les accents sur les lettres
 
-            $req = $bdd->prepare("INSERT INTO comments(username, contenu, post_id, date_creation) values (?, ?, ?, NOW()) ");
+            $req = $bdd->prepare("INSERT INTO comments(valide, signale, username, contenu, post_id, date_creation) values (?, ?, ?, ?, ?, NOW()) ");
 
-            $req->execute(array($UserName, $Comment, $Post_ID));
+            $req->execute(array($Valide, $Signale, $UserName, $Comment, $Post_ID));
 
             header('Location: ../index.php?action=blog');
 
@@ -129,7 +142,7 @@ class Comments
         // var_dump($bdd->errorInfo());
         // var_dump($req->errorInfo());
 
-        header("Location: ../index.php?action=admin");
+        header("Location: ../index.php?action=blog");
 
         exit();
     }

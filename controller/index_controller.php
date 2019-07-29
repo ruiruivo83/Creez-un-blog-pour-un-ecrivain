@@ -6,6 +6,7 @@ require "model/login.php";
 require "model/logout.php";
 require "model/validationbuild.php";
 require "model/register.php";
+require "model/user_info.php";
 
 class index_controller
 {
@@ -31,13 +32,6 @@ class index_controller
         $view = file_get_contents("view/_layout.html");
         $view = str_replace("{CONTENT}", file_get_contents("view/blog.html"), $view);
         $view = $this->ApplySession($view);
-
-        // ADD POST - IF ADMIN
-        if (isset($_SESSION['db_email']) && $_SESSION['db_admin'] == 1) {
-            $view = str_replace("{ADD_POST}", file_get_contents("view/add_post.html"), $view);
-        } else {
-            $view = str_replace("{ADD_POST}", "", $view);
-        }
 
         $view = str_replace("{POST_LIST}", $this->ReplacePostList($view), $view);
         // $view = ReplacePostList($view);
@@ -108,19 +102,26 @@ class index_controller
 
     public function admin()
     {
-        $view = file_get_contents("view/_layout.html");
-        $view = str_replace("{CONTENT}", file_get_contents("view/admin.html"), $view);
-        $view = $this->ApplySession($view);
 
-        // TODO
-        // GET NON VALIDATED COMMENTS ORDER DESC by date
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
 
         if (isset($_SESSION['db_email']) && $_SESSION['db_admin'] == 1) {
+            $view = file_get_contents("view/_layout.html");
+            $view = str_replace("{CONTENT}", file_get_contents("view/admin.html"), $view);
+
+            $view = str_replace("{ADD_POST}", file_get_contents("view/add_post.html"), $view);
+
+            $view = $this->ApplySession($view);
+
+            // TODO
+            // GET NON VALIDATED COMMENTS ORDER DESC by date
             $ValidationBuild = new ValidationBuild();
             $list_non_validated_comments = $ValidationBuild->BuildNonValidatedCommentList_model();
             $view = str_replace("{COMMENTS_TO_VALIDATE}", $list_non_validated_comments, $view);
         } else {
-            $view = str_replace("{COMMENTS_TO_VALIDATE}", "", $view);
+            header('Location: ../index.php');
         }
 
         // Build button to validate comments
@@ -170,6 +171,11 @@ class index_controller
         $post->SignalComment($id);
     }
 
+    public function user_info(){
+        $post = new User();
+        $post->Info();
+    }
+
     // _________________________________________________
     // _________________________________________________
     // _________________________________________________
@@ -181,10 +187,11 @@ class index_controller
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
+        
         // $_SESSION['db_email'] = "ruivo.rui@gmail.com";
         // $_SESSION['db_email'] = null;
         if (isset($_SESSION['db_email'])) {
-            $logout_button = "<a class=\"nav-link\" href=\"index.php?action=contact\"><i class=\"fas fa-user\"></i></a>" . "<a class=\"nav-link\" href=\"index.php?action=contact\">" . $_SESSION['db_email'] . "</a>" . "<a class=\"nav-link\" href=\"index.php?action=contact\">" . file_get_contents("view/button_logout.html") . "</a>";
+            $logout_button = "<a class=\"nav-link\" href=\"index.php?action=user_info\"><i class=\"fas fa-user\"></i></a>" . "<a class=\"nav-link\" href=\"index.php?action=user_info\">" . $_SESSION['db_email'] . "</a>" . "<a class=\"nav-link\" href=\"index.php?action=contact\">" . file_get_contents("view/button_logout.html") . "</a>";
             $view = str_replace("{USER_BLOC}", $logout_button, $view);
             // IF USER IS ADMIN SHOW ADMIN LINK
             if (isset($_SESSION['db_admin']) && $_SESSION['db_admin'] == 1) {
@@ -271,7 +278,7 @@ class index_controller
             $current_comment = str_replace("{COMMENT_USER}", $current_result["username"], $current_comment);
             $current_comment = str_replace("{COMMENT_DATE_CREATION}", $current_result["date_creation"], $current_comment);
             $current_comment = str_replace("{COMMENT_CONTENT}", $current_result["contenu"], $current_comment);
-            
+
             if (isset($_SESSION['db_email']) && $_SESSION['db_admin'] == 1) {
                 $id = $current_result["id"];
                 // DELETE BUTTON
@@ -307,7 +314,7 @@ class index_controller
                 $current_comment = str_replace("{COMMENT_CONTENT}", $current_result["contenu"], $current_comment);
 
                 $id = $current_result["id"];
-                $link_to_apply_urgent = "<a href=\"index.php?action=apply_urgent&id=" . $id . "\" class=\"btn btn-danger btn-sm\">Demander a valider</a>";
+                $link_to_apply_urgent = "<a href=\"index.php?action=apply_urgent&id=" . $id . "\" class=\"btn btn-danger btn-sm\">Demander a valider</a>(Commentaire non publié)";
                 $current_comment = str_replace("{APPLY_URGENT}", $link_to_apply_urgent, $current_comment);
 
                 /*
