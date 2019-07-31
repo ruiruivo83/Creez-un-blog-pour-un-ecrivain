@@ -16,6 +16,11 @@ class index_controller
         $view = file_get_contents("view/_layout.html");
         $view = str_replace("{CONTENT}", file_get_contents("view/accueil.html"), $view);
         $view = $this->ApplySession($view);
+        /*
+        $accueil_post_resume_default_code = file_get_contents("view/ACCUEIL_POST_RESUME_DEFAULT_CODE.html");
+        $accueil_post_resume_list = $this->GetResumePostList($view);
+        $view = str_replace("{ACCUEIL_POST_RESUME_LIST}", $accueil_post_resume_list, $view);
+         */
         echo $view;
     }
 
@@ -92,17 +97,15 @@ class index_controller
 
     public function register()
     {
-
         $view = file_get_contents("view/_layout.html");
         $view = str_replace("{CONTENT}", file_get_contents("view/register.html"), $view);
         $view = $this->ApplySession($view);
         echo $view;
-
     }
 
+    ////
     public function admin()
     {
-
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
@@ -119,13 +122,18 @@ class index_controller
             // GET NON VALIDATED COMMENTS ORDER DESC by date
             $ValidationBuild = new ValidationBuild();
             $list_non_validated_comments = $ValidationBuild->BuildNonValidatedCommentList_model();
+
+            // GET COMMENTS LIST TO VALIDATE
             $view = str_replace("{COMMENTS_TO_VALIDATE}", $list_non_validated_comments, $view);
+
+            // GET POST LIST IN TABLE
+            $view = str_replace("{POST_LIST_TABLE}", $this->GetPostListHTMLTable(), $view);
+
         } else {
             header('Location: ../index.php');
         }
 
         // Build button to validate comments
-
         echo $view;
     }
 
@@ -171,7 +179,8 @@ class index_controller
         $post->SignalComment($id);
     }
 
-    public function user_info(){
+    public function user_info()
+    {
         $post = new User();
         $post->Info();
     }
@@ -180,6 +189,41 @@ class index_controller
     // _________________________________________________
     // _________________________________________________
 
+    public function GetPostListHTMLTable()
+    {
+        $HTMLPostListTable = "";
+
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        $bloc_post_list = file_get_contents("view/post_list_table_default_code_main_bloc.html");
+
+
+
+
+
+        $post_default_code = file_get_contents("view/post_list_table_default_code.html");
+        $post = new Posts();
+        $result = $post->get_posts(); // FROM MODEL
+        $bloc_billet = "";
+        foreach ($result as $current_result) {
+            $current_billet = $post_default_code;
+            $current_billet = str_replace("{POST_TITLE}", $current_result["titre"], $current_billet);
+            $current_billet = str_replace("{BUTTON_DELETE}","<a href=\"index.php?action=delete_post&id=".$current_result["id"]."\" class=\"btn btn-danger btn-sm\">Supprimer</a>" , $current_billet);
+            $current_billet = str_replace("{BUTTON_EDIT}","<a href=\"index.php?action=edit_post&id=".$current_result["id"]."\" class=\"btn btn-secondary btn-sm\">Editer</a>" , $current_billet);
+
+            
+            
+
+            $HTMLPostListTable .= $current_billet;
+        }
+
+        $bloc_post_list = str_replace("{ADMIN_LIST_BLOC}", $HTMLPostListTable, $bloc_post_list );
+
+        return $bloc_post_list;
+    }
+
     // APPLY SESSION
     public function ApplySession($view)
     {
@@ -187,7 +231,7 @@ class index_controller
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }
-        
+
         // $_SESSION['db_email'] = "ruivo.rui@gmail.com";
         // $_SESSION['db_email'] = null;
         if (isset($_SESSION['db_email'])) {
@@ -266,8 +310,12 @@ class index_controller
         return $bloc_billet;
     }
 
+    ////
     public function GetCommentsforPost($post_id)
     {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
 
         $comment_default_code = file_get_contents("view/comment_default_code.html");
         $Comments = new Comments();
@@ -278,6 +326,18 @@ class index_controller
             $current_comment = str_replace("{COMMENT_USER}", $current_result["username"], $current_comment);
             $current_comment = str_replace("{COMMENT_DATE_CREATION}", $current_result["date_creation"], $current_comment);
             $current_comment = str_replace("{COMMENT_CONTENT}", $current_result["contenu"], $current_comment);
+
+            // REMOVE SIGNALE BUTTON FOR ADMIN COMMENTS
+            if (isset($_SESSION['db_email']) && $current_result["username"] == "ruivo.rui@gmail.com") {
+                $current_comment = str_replace("{SIGNAL_COMMENT}", "", $current_comment);
+            }
+
+            // ADD DELETE BUTTON TO USER OWN COMMENTS
+            if (isset($_SESSION['db_email']) && $current_result["username"] == $_SESSION['db_email']) {
+                $id = $current_result["id"];
+                $delete_comment_button = "<a href=\"index.php?action=delete_comment&id=" . $id . "\" class=\"btn btn-danger btn-sm\">Supprimer</a>";
+                $current_comment = str_replace("{DELETE_COMMENT}", $delete_comment_button, $current_comment);
+            }
 
             if (isset($_SESSION['db_email']) && $_SESSION['db_admin'] == 1) {
                 $id = $current_result["id"];
@@ -299,6 +359,7 @@ class index_controller
         return $List_Comments;
     }
 
+    ////
     public function GetCommentsforThisUser($post_id)
     {
         $comment_default_code = file_get_contents("view/non_validated_comment_default_code.html");
@@ -332,6 +393,16 @@ class index_controller
         }
 
         return $List_Comments;
+    }
+
+    ////
+    public function GetResumePostList($view)
+    {
+        $post = new Posts();
+        $result = $post->get_posts(); // FROM MODEL
+        $bloc_billet_resume = "";
+
+        return $view;
     }
 
 }

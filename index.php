@@ -43,6 +43,7 @@ class Router
             if ($_GET['action'] == 'register') {
                 $c->register();
             }
+
             if ($_GET['action'] == 'registernewuser') {
                 $c->registerNewUser();
             }
@@ -57,7 +58,6 @@ class Router
 
             // VALIDATE COMMENT
             if ($_GET['action'] == 'validate_comment') {
-
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
                     $c->validate_comment($_GET['id']);
                 } else {
@@ -66,7 +66,6 @@ class Router
             }
 
             // SIGNAL COMMENT
-            // signal_comment
             if ($_GET['action'] == 'signal_comment') {
 
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -90,7 +89,6 @@ class Router
 
             // EDIT POST
             if ($_GET['action'] == 'edit_post') {
-
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
                     $c->edit_post($_GET['id']);
                 } else {
@@ -104,7 +102,6 @@ class Router
             }
 
             // DELETE POST
-
             if ($_GET['action'] == 'delete_post') {
 
                 if (isset($_GET['id']) && $_GET['id'] > 0) {

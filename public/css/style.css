@@ -83,10 +83,11 @@
     .page_main_container {
         background-color: rgba(255, 255, 255, 0.151);
         margin: auto;
-        margin-top: 50px;
+        margin-top: 0px;
         /* max-width: 800px; */
         text-align: center;
         padding: 10px;
+
     }
     .register_container {
         display: flex;
@@ -97,8 +98,7 @@
         /* margin-top: 100px; */
         padding: 30px;
     }
-
-    .register_bloc{
+    .register_bloc {
         width: 400px;
     }
     .div_credentials {
@@ -188,7 +188,71 @@
     .contact_pays {
         width: 300px;
     }
-
+    .flex_wrap {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+    .jumbotron {
+        background-color: #ffffff;
+        margin: 100px;
+    }
+    .image_container {
+        margin: 10px;
+    }
+    .text_container {
+        margin: 10px;
+        color: rgb(26, 26, 26);
+        text-align: left;
+    }
+    .biographie_main_container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+    .biographie_text {
+        text-align: left;
+        width: 70%;
+    }
+    .comment_user {
+        /* background-color: red; */
+        color: rgb(92, 92, 92);
+        font-size: 10px;
+        text-align: left;
+    }
+    .card-body {
+        color: rgb(92, 92, 92);
+        font-size: 12px;
+        text-align: left;
+    }
+    .comment_content {
+        color: rgb(0, 0, 0);
+        font-size: 15px;
+        text-align: left;
+    }
+    .admin_post_list_bloc {
+        width: 900px;
+        margin-top: 20px;
+        margin: auto;
+    }
+    .admin_div_post_list {
+        display: flex;
+        background-color: rgba(255, 255, 255, 0.356);
+        width: 100%;
+        margin-top: 10px;
+    }
+    .admin_post_title {
+        width: 100%;
+        text-align: left;
+        display: flex;
+       padding-left: 20px;
+        justify-content: left;
+        align-items: center;
+        align-content: center;
+    }
 }
 
 @media screen and (max-width: 999px) {
@@ -203,6 +267,7 @@
     }
     .page_main_container {
         background-color: rgba(255, 255, 255, 0.24);
+       
     }
     .div_comment {
         margin-top: 100px;
@@ -252,7 +317,7 @@
     .page_main_container {
         background-color: rgba(255, 255, 255, 0.151);
         margin: auto;
-        margin-top: 50px;
+        margin-top: 0px;
         /* max-width: 800px; */
         text-align: center;
         padding: 10px;
@@ -359,5 +424,35 @@
     }
     .div_comment {
         width: 500px;
+    }
+    .flex_wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        flex-wrap: wrap;
+    }
+    .card {
+        margin: 10px;
+        min-width: 250px;
+    }
+    .text_container {
+        margin: 10px;
+        color: rgb(26, 26, 26);
+        text-align: left;
+    }
+    .admin_post_title {
+        width: 100%;
+    }
+    .admin_post_list_bloc {
+        width: 100%;
+        margin-top: 20px;
+        margin: auto;
+    }
+    .admin_div_post_list {
+        display: flex;
+        background-color: rgba(255, 255, 255, 0.356);
+        width: 100%;
+        margin-top: 10px;
     }
 }
