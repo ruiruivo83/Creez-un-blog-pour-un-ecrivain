@@ -6,6 +6,7 @@ class config {
 public $Database_Name = "blog";
 public $Database_User = "root";
 public $Database_Password = "";
+public $admin = "admin@jeanforteroche.com";
 
 }
 
@@ -18,5 +19,6 @@ public $Database_Password = "";
 $Database_Name = "_blog";
 $Database_User = "remote83";
 $Database_Password = "ycvms74b";
+public $admin = "admin@jeanforteroche.com";
 
  */
