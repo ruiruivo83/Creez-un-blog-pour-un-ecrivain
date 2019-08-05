@@ -1,3 +1,17 @@
+<!-- 
+
+INFO LOGIN
+
+Admin User: admin@jeanforteroche.com
+Admin Pass: azerty
+
+User01 login: user01@gmail.com
+User01 pass: az
+
+-->
+
+
+
 <?php
 
 class config {
