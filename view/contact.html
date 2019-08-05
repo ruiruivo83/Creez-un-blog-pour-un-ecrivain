@@ -1,3 +1,9 @@
+    <!-- Tiny MCE -->
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"></script>
+    <script>tinymce.init({ selector: 'textarea', branding: false, menubar: false, toolbar: false,  });</script>
+
+
+
 <div class="page_main_container">
   <h1>Contact</h1>
   <div>
@@ -12,19 +18,9 @@
           <label for="lname">Nom</label>
           <input type="text" id="lname" name="lastname" placeholder="Your last name..">
         </div>
-        <div class="bloc_contact_pays">
-          <div class="contact_pays">
-            <label for="country">Pays</label>
-            <select id="country" name="country">
-              <option value="australia">France</option>
-              <option value="canada">Espagne</option>
-              <option value="usa">Portugal</option>
-            </select>
-          </div>
-        </div>
-        <div >
-          <label for="subject">Sujet</label>
-          <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+        <div>
+          <div class="label_message"><label for="subject">Message: </label></div>
+          <div><textarea id="content" name="content" placeholder="" style="height:200px"></textarea></div>
         </div>
         <input type="submit" value="Submit">
 

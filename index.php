@@ -28,10 +28,6 @@ class Router
                 $c->blog();
             }
 
-            if ($_GET['action'] == 'contact') {
-                $c->contact();
-            }
-
             if ($_GET['action'] == 'login') {
                 $c->login();
             }
@@ -87,6 +83,10 @@ class Router
                 $c->add_post();
             }
 
+            if ($_GET['action'] == 'addMessage') {
+                $c->add_message();
+            }
+
             // EDIT POST
             if ($_GET['action'] == 'edit_post') {
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -108,6 +108,16 @@ class Router
                     $c->delete_post($_GET['id']);
                 } else {
                     echo 'Aucun identifiant de billet envoyé';
+                }
+            }
+
+            // APPLY URGENCE
+            if ($_GET['action'] == 'apply_urgent') {
+
+                if (isset($_GET['id']) && $_GET['id'] > 0) {
+                    $c->apply_urgent($_GET['id']);
+                } else {
+                    echo 'Erreur : aucun identifiant de commentaire envoyé';
                 }
             }
 

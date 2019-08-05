@@ -82,12 +82,14 @@
     }
     .page_main_container {
         background-color: rgba(255, 255, 255, 0.151);
-        margin: auto;
+        
         margin-top: 0px;
         /* max-width: 800px; */
         text-align: center;
         padding: 10px;
-
+        margin: auto;
+        width: 1400px;
+        
     }
     .register_container {
         display: flex;
@@ -195,8 +197,12 @@
         justify-content: space-evenly;
     }
     .jumbotron {
+        width: 1000px;
         background-color: #ffffff;
         margin: 100px;
+        margin: auto;
+        margin-top: 30px;
+        margin-bottom: 50px;
     }
     .image_container {
         margin: 10px;
@@ -225,7 +231,7 @@
     }
     .card-body {
         color: rgb(92, 92, 92);
-        font-size: 12px;
+        /* font-size: 12px; */
         text-align: left;
     }
     .comment_content {
@@ -248,10 +254,14 @@
         width: 100%;
         text-align: left;
         display: flex;
-       padding-left: 20px;
+        padding-left: 20px;
         justify-content: left;
         align-items: center;
         align-content: center;
+    }
+    .label_message {
+        
+        text-align: left;
     }
 }
 
@@ -267,7 +277,6 @@
     }
     .page_main_container {
         background-color: rgba(255, 255, 255, 0.24);
-       
     }
     .div_comment {
         margin-top: 100px;
@@ -454,5 +463,8 @@
         background-color: rgba(255, 255, 255, 0.356);
         width: 100%;
         margin-top: 10px;
+    }
+    .card_body_comments_container .card-body {
+        width: 100%;
     }
 }

@@ -7,6 +7,7 @@ require "model/logout.php";
 require "model/validationbuild.php";
 require "model/register.php";
 require "model/user_info.php";
+require "model/messages.php";
 
 class index_controller
 {
@@ -41,14 +42,6 @@ class index_controller
         $view = str_replace("{POST_LIST}", $this->ReplacePostList($view), $view);
         // $view = ReplacePostList($view);
 
-        echo $view;
-    }
-
-    public function contact()
-    {
-        $view = file_get_contents("view/_layout.html");
-        $view = str_replace("{CONTENT}", file_get_contents("view/contact.html"), $view);
-        $view = $this->ApplySession($view);
         echo $view;
     }
 
@@ -149,6 +142,12 @@ class index_controller
         $post->add_post();
     }
 
+    public function add_message()
+    {
+        $post = new Posts();
+        $post->add_post();
+    }
+
     public function edit_post($id)
     {
         $post = new Posts();
@@ -199,10 +198,6 @@ class index_controller
 
         $bloc_post_list = file_get_contents("view/post_list_table_default_code_main_bloc.html");
 
-
-
-
-
         $post_default_code = file_get_contents("view/post_list_table_default_code.html");
         $post = new Posts();
         $result = $post->get_posts(); // FROM MODEL
@@ -210,16 +205,13 @@ class index_controller
         foreach ($result as $current_result) {
             $current_billet = $post_default_code;
             $current_billet = str_replace("{POST_TITLE}", $current_result["titre"], $current_billet);
-            $current_billet = str_replace("{BUTTON_DELETE}","<a href=\"index.php?action=delete_post&id=".$current_result["id"]."\" class=\"btn btn-danger btn-sm\">Supprimer</a>" , $current_billet);
-            $current_billet = str_replace("{BUTTON_EDIT}","<a href=\"index.php?action=edit_post&id=".$current_result["id"]."\" class=\"btn btn-secondary btn-sm\">Editer</a>" , $current_billet);
-
-            
-            
+            $current_billet = str_replace("{BUTTON_DELETE}", "<a href=\"index.php?action=delete_post&id=" . $current_result["id"] . "\" class=\"btn btn-danger btn-sm\">Supprimer</a>", $current_billet);
+            $current_billet = str_replace("{BUTTON_EDIT}", "<a href=\"index.php?action=edit_post&id=" . $current_result["id"] . "\" class=\"btn btn-secondary btn-sm\">Editer</a>", $current_billet);
 
             $HTMLPostListTable .= $current_billet;
         }
 
-        $bloc_post_list = str_replace("{ADMIN_LIST_BLOC}", $HTMLPostListTable, $bloc_post_list );
+        $bloc_post_list = str_replace("{ADMIN_LIST_BLOC}", $HTMLPostListTable, $bloc_post_list);
 
         return $bloc_post_list;
     }
@@ -403,6 +395,34 @@ class index_controller
         $bloc_billet_resume = "";
 
         return $view;
+    }
+
+
+    public function apply_urgent($id)
+    {
+
+        /*
+            $req = $bdd->prepare("UPDATE billets SET titre=? , contenu=? WHERE id=?");        
+            $req->execute(array($Titre, $Contenu, $id));
+        */
+
+        // TODO
+        // require "config.php";
+
+        $Config = new Config();
+
+        $bdd = new PDO('mysql:host=localhost;dbname=' . $Config->Database_Name, $Config->Database_User, $Config->Database_Password);
+        $req = $bdd->prepare("UPDATE comments SET date_creation = (NOW()) WHERE id = ?");
+
+        // $req = $bdd->prepare("UPDATE INTO billets(titre, contenu, date_creation) values (?, ?, NOW())");
+        $req->execute(array($id));
+
+        // var_dump($bdd->errorInfo());
+        // var_dump($req->errorInfo());
+
+        header("Location: ../index.php");
+
+        exit();
     }
 
 }
