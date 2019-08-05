@@ -142,11 +142,7 @@ class index_controller
         $post->add_post();
     }
 
-    public function add_message()
-    {
-        $post = new Posts();
-        $post->add_post();
-    }
+
 
     public function edit_post($id)
     {
@@ -176,6 +172,13 @@ class index_controller
     {
         $post = new Comments();
         $post->SignalComment($id);
+    }
+
+    public function delete_comment($id)
+    {
+        $post = new Comments();
+        $post->delete_comment($id);
+        
     }
 
     public function user_info()

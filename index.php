@@ -111,6 +111,16 @@ class Router
                 }
             }
 
+            // DELETE COMMENT
+            if ($_GET['action'] == 'delete_comment') {
+
+                if (isset($_GET['id']) && $_GET['id'] > 0) {
+                    $c->delete_comment($_GET['id']);
+                } else {
+                    echo 'Erreur : aucun identifiant de commentaire envoyé';
+                }
+            }
+
             // APPLY URGENCE
             if ($_GET['action'] == 'apply_urgent') {
 

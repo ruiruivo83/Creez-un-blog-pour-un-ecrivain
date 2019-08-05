@@ -167,4 +167,6 @@ class Posts
         header("Location: index.php?action=blog");
     }
 
+    
+
 }

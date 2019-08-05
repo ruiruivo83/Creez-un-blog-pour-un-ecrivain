@@ -109,6 +109,22 @@ class Comments
         }
     }
 
+    function delete_comment($id)
+{
+
+    // include 'config.php';
+    $config = new Config();
+
+    $bdd = new PDO('mysql:host=localhost;dbname=' . $config->Database_Name, $config->Database_User, $config->Database_Password);
+    $req = $bdd->prepare('DELETE FROM comments WHERE id = :id');
+    $req->bindParam(':id', $_GET['id']);
+
+    $req->execute();
+
+    header("Location: index.php?action=blog");
+
+}
+
     public function ValidateComment($id)
     {
         // require "config.php";

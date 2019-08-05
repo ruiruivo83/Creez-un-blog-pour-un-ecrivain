@@ -4,11 +4,41 @@
 </div>
 
 <!-- IF ADMIN -->
-{POST_LIST_TABLE}
+<div class="button_collapse_billet">
+    <p>
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapsePostList"
+            aria-expanded="false" aria-controls="collapsePostList">
+            <div class="div_inline_horizontal">
+                <div class="icone"><i class="fas fa-blog"></i> </div>
+                <div>Billet du Blog</div>               
+            </div>
+        </button>
+    </p>
+</div>
+<div class="collapse" id="collapsePostList">
+    <div class="card card-body">
+        {POST_LIST_TABLE}
+    </div>
+</div>
+
 <br>
 <br>
 <br>
 <!-- IF ADMIN -->
-{COMMENTS_TO_VALIDATE}
-
-
+<div class="button_collapse_billet">
+    <p>
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseCommentsList"
+            aria-expanded="false" aria-controls="collapseCommentsList">
+            <div class="div_inline_horizontal">
+                <div class="icone"><i class="fas fa-comments"></i></div>
+                <div> Commentaires à Valider </div>               
+            </div>
+            
+        </button>
+    </p>
+</div>
+<div class="collapse" id="collapseCommentsList">
+    <div class="card card-body">
+        {COMMENTS_TO_VALIDATE}
+    </div>
+</div>

@@ -82,14 +82,12 @@
     }
     .page_main_container {
         background-color: rgba(255, 255, 255, 0.151);
-        
         margin-top: 0px;
         /* max-width: 800px; */
         text-align: center;
         padding: 10px;
         margin: auto;
         width: 1400px;
-        
     }
     .register_container {
         display: flex;
@@ -260,8 +258,43 @@
         align-content: center;
     }
     .label_message {
-        
         text-align: left;
+    }
+    .add_comment_validate_button {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .button_collapse_billet {
+        width: 100%;
+        background-color: rgba(66, 82, 92, 0.281);
+        padding: 5px;
+        text-align: left;
+        flex-wrap: wrap;
+        align-items: center;
+        align-content: center;
+        border-radius: 10px 40px;
+        margin-bottom: 10px;
+    }
+    .div_inline_horizontal {
+        display: flex;
+        flex-direction: row;        
+        justify-content: space-between;
+
+        /*
+        align-items: center;
+        align-content: center;
+        */
+        
+    }
+
+    .div_inline_horizontal .icone {
+        margin-right: 20px;
+    }
+
+    .first_image_container {
+        width: 100%;
+        
+        text-align: center;
     }
 }
 
@@ -466,5 +499,9 @@
     }
     .card_body_comments_container .card-body {
         width: 100%;
+    }
+    .add_comment_validate_button {
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 }
