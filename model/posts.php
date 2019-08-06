@@ -26,11 +26,12 @@ class Posts
         $result = $req->fetchall();
 
         return $result;
-
     }
 
     public function add_post()
     {
+     
+
         $config = new Config();
         // DEFINE DATABASE CONNECTION - PDO
         try {
@@ -57,7 +58,6 @@ class Posts
 
             exit();
         }
-
     }
 
     public function edit_post($id)
@@ -74,7 +74,6 @@ class Posts
         $IndexController = new index_controller();
         $view = $IndexController->ApplySession($view);
         echo $view;
-
     }
 
     public function edit_post_model($id)
@@ -85,14 +84,14 @@ class Posts
 
         $edit_post_default_code = file_get_contents("view/edit_post_default_code.html");
 
-// DEFINE DATABASE CONNECTION - PDO
+        // DEFINE DATABASE CONNECTION - PDO
         try {
             $bdd = new PDO('mysql:host=localhost;dbname=' . $config->Database_Name, $config->Database_User, $config->Database_Password);
         } catch (\Throwable $e) {
             die('Erreur : ' . $e->getMessage());
         }
 
-// GET CURRENT DATA INSIDE DATABASE
+        // GET CURRENT DATA INSIDE DATABASE
         $bdd = new PDO('mysql:host=localhost;dbname=' . $config->Database_Name, $config->Database_User, $config->Database_Password);
         $req = $bdd->prepare('SELECT titre, contenu FROM billets WHERE id = :id');
 
@@ -108,7 +107,7 @@ class Posts
             $edit_post_default_code = str_replace("{ID}", $id, $edit_post_default_code);
         }
 
-// MONTRE TOUT LE CODE DE LA PAGE
+        // MONTRE TOUT LE CODE DE LA PAGE
         return $edit_post_default_code;
     }
 
@@ -166,7 +165,4 @@ class Posts
 
         header("Location: index.php?action=blog");
     }
-
-    
-
 }

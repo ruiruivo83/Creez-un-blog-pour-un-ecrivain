@@ -327,9 +327,13 @@ class index_controller
             // var_dump($current_result["admin"]);
             // die;
 
+            if (!isset($_SESSION['db_email'])) {
+                $current_comment = str_replace("{SIGNAL_COMMENT}", "", $current_comment);
+            } 
+
             if (isset($_SESSION['db_email']) && $current_result["username"] == $config->admin) {
                 $current_comment = str_replace("{SIGNAL_COMMENT}", "", $current_comment);
-            } else
+            } 
 
             // ADD DELETE BUTTON TO USER OWN COMMENTS
             if (isset($_SESSION['db_email']) && $current_result["username"] == $_SESSION['db_email']) {

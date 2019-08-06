@@ -79,7 +79,8 @@ class Router
                 $c->add_comment();
             }
 
-            if ($_GET['action'] == 'addPost') {
+            if ($_GET['action'] == 'add_Post') {
+              
                 $c->add_post();
             }
 
