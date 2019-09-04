@@ -2,7 +2,7 @@
 
 require 'controller/session_controller.php';
 // require 'controller/post_controller.php';
-require 'model/validationbuild.php';
+// require 'model/validationbuild.php';
 
 class admin_controller
 {
@@ -32,7 +32,7 @@ class admin_controller
 
             // TODO
             // GET NON VALIDATED COMMENTS ORDER DESC by date
-            $ValidationBuild = new ValidationBuild();
+            $ValidationBuild = new comment_controller;
             $list_non_validated_comments = $ValidationBuild->BuildNonValidatedCommentList_model();
 
             // GET COMMENTS LIST TO VALIDATE
