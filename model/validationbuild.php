@@ -5,7 +5,7 @@ class ValidationBuild
 
     public function BuildNonValidatedCommentList_model()
     {
-        $comment_default_code = file_get_contents("view/comments_to_validate_default_code.html");
+        $comment_default_code = file_get_contents("view/backend/comments_to_validate_default_code.html");
         $result = $this->Get_All_Non_Validated_Comments_From_Database();
         $List_Comments = "";
         foreach ($result as $current_result) {
