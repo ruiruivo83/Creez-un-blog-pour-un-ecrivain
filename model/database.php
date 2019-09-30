@@ -5,34 +5,20 @@
 
 include "config.php";
 
-
 // CLASSE DATABASE
-class database
+class Database
 {
+    private static $bdd = null;
 
-
-
-    // OBJET CONNETION
-    function connection()
+    public static function getBdd()
     {
-        $Config = new config();
-        // GET BILLETS FROM DATABASE
-        try {
-            $bdd = new PDO('mysql:host=localhost; dbname=' . $Config->Database_Name, $Config->Database_User, $Config->Database_Password, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
-        } catch (Exception $e) {
-            die('Erreur : ' . $e->getMessage());
+
+        if (self::$bdd == null) {
+            $Config = new config();
+            self::$bdd = new PDO('mysql:host=localhost; dbname=' . $Config->Database_Name, $Config->Database_User, $Config->Database_Password, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
         }
-        return $bdd;
+
+        return self::$bdd;
     }
-
-
-
-
-
-
-
-
-
-
 
 }

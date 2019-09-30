@@ -5,18 +5,18 @@
 <?php
 
 // IMPORT CONTROLLERS
-require 'controller/pages_controller.php';
-require 'controller/post_controller.php';
-require 'controller/comment_controller.php';
-require 'controller/user_controller.php';
-require 'controller/admin_controller.php';
+require 'controller/pagesController.php';
+require 'controller/postController.php';
+require 'controller/commentController.php';
+require 'controller/userController.php';
+require 'controller/adminController.php';
 
 class router
 {
 
     public function __construct()
     {
-        // SESSION
+        // SESSION OPEN FOR ALL USERS
         // IMPLEMENT SESSION VERIFICATION
         // On démarre la session AVANT d'écrire du code HTML
         if (session_status() == PHP_SESSION_NONE) {
@@ -27,11 +27,12 @@ class router
     public function main()
     {
 
-        $pagesController = new pages_controller();
-        $postController = new post_controller();
-        $commentController = new comment_controller();
-        $userController = new user_controller();
-        $adminController = new admin_controller();
+        $pagesController = new pagesController();
+        $postController = new postController();
+        $commentController = new commentController();
+        $userController = new userController();
+        $adminController = new adminController();
+
 
         if (isset($_GET['action'])) {
 
@@ -55,13 +56,11 @@ class router
             }
 
             // EDIT POST
-            if (isset($_SESSION["db_admin"]) and $_SESSION["db_admin"] == 1) {
-                if ($_GET['action'] == 'edit_post') {
-                    if (isset($_GET['id']) && $_GET['id'] > 0) {
-                        $postController->edit_post($_GET['id']);
-                    } else {
-                        echo 'Aucun identifiant de billet envoyé';
-                    }
+            if ($_GET['action'] == 'edit_post') {
+                if (isset($_GET['id']) && $_GET['id'] > 0) {
+                    $postController->editPost($_GET['id']);
+                } else {
+                    echo 'Aucun identifiant de billet envoyé';
                 }
             }
 
@@ -72,23 +71,24 @@ class router
 
             // REGISTER
             if ($_GET['action'] == 'register') {
+
                 $pagesController->register();
             }
 
             // PAGE ADMIN
-            if (isset($_SESSION["db_admin"]) and $_SESSION["db_admin"] == 1) {
-                if ($_GET['action'] == 'admin') {
-                    $adminController->admin();
-                }
+            if ($_GET['action'] == 'admin') {
+
+                $adminController->admin();
             }
 
-            ////////////////////////////////////////////////////////////////////
+
+            //////////////////////////////////////////////////////////////
             ////////////////////// ROUTER FUNCTIONS ////////////////////////////
             ////////////////////////////////////////////////////////////////////
 
             // LOGIN VALIDATION
             if ($_GET['action'] == 'login_validation') {
-                $userController->login_validation();
+                $userController->loginValidation();
             }
 
             // PAGE REGISTER NEW USER
@@ -103,84 +103,70 @@ class router
 
             // ADD POST
             if ($_GET['action'] == 'add_Post') {
-                $postController->add_post();
+                $postController->addPost();
             }
 
             // UPDATE POST
             if ($_GET['action'] == 'update_post') {
-                $postController->update_post();
+                $postController->updatePost();
             }
 
             // DELETE POST
-            if (isset($_SESSION["db_admin"])) {
-                if ($_GET['action'] == 'delete_post') {
-                    if (isset($_GET['id']) && $_GET['id'] > 0) {
-                        $postController->delete_post($_GET['id']);
-                    } else {
-                        echo 'Aucun identifiant de billet envoyé';
-                    }
+            if ($_GET['action'] == 'delete_post') {
+                if (isset($_GET['id']) && $_GET['id'] > 0) {
+                    $postController->delete_post($_GET['id']);
+                } else {
+                    echo 'Aucun identifiant de billet envoyé';
                 }
             }
 
-            // ADD COMMENT
-            if (isset($_SESSION["db_email"])) {
-                if ($_GET['action'] == 'add_comment') {
-                    $commentController->add_comment();
-                }
-            }
-
-            // SIGNAL COMMENT
-            if (isset($_SESSION["db_email"])) {
-                if ($_GET['action'] == 'signal_comment') {
-                    if (isset($_GET['id']) && $_GET['id'] > 0) {
-                        $commentController->signal_comment($_GET['id']);
-                    } else {
-                        echo 'Aucun identifiant de commentaire envoyé';
-                    }
-                }
-            }
-
-            // VALIDATE COMMENT
-            if (isset($_SESSION["db_admin"])) {
-                if ($_GET['action'] == 'validate_comment') {
-                    if (isset($_GET['id']) && $_GET['id'] > 0) {
-                        $commentController->validate_comment($_GET['id']);
-                    } else {
-                        echo 'Aucun identifiant de billet envoyé';
-                    }
-                }
-            }
-
-            // DELETE COMMENT
-            if (isset($_SESSION["db_admin"])) {
-                if ($_GET['action'] == 'delete_comment') {
-
-                    if (isset($_GET['id']) && $_GET['id'] > 0) {
-                        $commentController->delete_comment($_GET['id']);
-                    } else {
-                        echo 'Erreur : aucun identifiant de commentaire envoyé';
-                    }
-                }
-
-            }
-
-            // APPLY URGENCY
-            if (isset($_SESSION["db_email"])) {
-
-                if ($_GET['action'] == 'apply_urgent') {
-
-                    if (isset($_GET['id']) && $_GET['id'] > 0) {
-                        $commentController->apply_urgent($_GET['id']);
-                    } else {
-                        echo 'Erreur : aucun identifiant de commentaire envoyé';
-                    }
-                }
-            }
         } else {
             $pagesController->accueil();
         }
 
+        // ADD COMMENT
+        if ($_GET['action'] == 'add_comment') {
+            $commentController->add_Comment();
+        }
+
+        // SIGNAL COMMENT
+        if ($_GET['action'] == 'signal_comment') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $commentController->signal_comment($_GET['id']);
+            } else {
+                echo 'Aucun identifiant de commentaire envoyé';
+            }
+        }
+
+        // VALIDATE COMMENT
+        if ($_GET['action'] == 'validate_comment') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $commentController->validate_comment($_GET['id']);
+            } else {
+                echo 'Aucun identifiant de billet envoyé';
+            }
+        }
+
+        // DELETE COMMENT
+        if ($_GET['action'] == 'delete_comment') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $commentController->delete_comment($_GET['id']);
+            } else {
+                echo 'Erreur : aucun identifiant de commentaire envoyé';
+            }
+        }
+
+        // APPLY URGENCY
+        if ($_GET['action'] == 'apply_urgent') {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
+                $commentController->apply_urgent($_GET['id']);
+            } else {
+                echo 'Erreur : aucun identifiant de commentaire envoyé';
+            }
+        }
+
     }
+
 }
 
 // Main Call

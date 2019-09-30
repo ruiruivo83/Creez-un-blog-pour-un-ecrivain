@@ -10,20 +10,18 @@ User01 pass: az
 
 -->
 
-
-
 <?php
+
 
 class config
 {
-
     // LOCAL DATABASE
     public $Database_Name = "blog";
     public $Database_User = "root";
     public $Database_Password = "";
     public $admin = "admin@jeanforteroche.com";
-
 }
+
 
 // REMOTE DATABASE
 /*

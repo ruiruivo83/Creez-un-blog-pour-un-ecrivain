@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ca065c5c-fa55-4e10-a136-b75ab7e05f21" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="ProjectId" id="1RMqIOOQgiK3LfdP5Lkl42VH7K5" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ruivo\Dropbox\OPENCLASSROOMS\PROJET - P4\CONSTRUCTION - Creez un blog pour un ecrivain\build08\test01\model" />
+      <recent name="C:\Users\ruivo\Dropbox\OPENCLASSROOMS\PROJET - P4\CONSTRUCTION - Creez un blog pour un ecrivain\build08\test01\public" />
+      <recent name="C:\Users\ruivo\Dropbox\OPENCLASSROOMS\PROJET - P4\CONSTRUCTION - Creez un blog pour un ecrivain\build08\test01\view" />
+      <recent name="C:\Users\ruivo\Dropbox\OPENCLASSROOMS\PROJET - P4\CONSTRUCTION - Creez un blog pour un ecrivain\build08\test01" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ca065c5c-fa55-4e10-a136-b75ab7e05f21" name="Default Changelist" comment="" />
+      <created>1569487231231</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1569487231231</updated>
+      <workItem from="1569487232506" duration="18656000" />
+      <workItem from="1569509496587" duration="2516000" />
+      <workItem from="1569531349032" duration="1055000" />
+      <workItem from="1569534712192" duration="1231000" />
+      <workItem from="1569655480306" duration="4091000" />
+      <workItem from="1569790061715" duration="7000" />
+      <workItem from="1569835543791" duration="2447000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>
