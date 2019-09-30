@@ -2,12 +2,12 @@
     <div class="card-body">
         <div>
             <img class="fit-picture" src="../public/images/mountain.png"
-                alt="Grapefruit slice atop a pile of other slices" width="50" />
+                 alt="Grapefruit slice atop a pile of other slices" width="50"/>
         </div>
         <div>
-        <h5 class="card-title"><em>{POST_TITLE}</em> <br>
-            <h6> Billet crée le {POST_DATE}</h6>
-        </h5>
+            <h5 class="card-title"><em>{POST_TITLE}</em> <br>
+                <h6> Billet crée le {POST_DATE}</h6>
+            </h5>
         </div>
         <p class="card-text">{POST_CONTENT}</p>
 
@@ -16,9 +16,7 @@
         {BUTTON_DELETE_POST}
 
 
-
     </div>
-
 
 
     <div class="card_body_comments_container">
@@ -32,6 +30,12 @@
         {COMMENTS_WAITING}
 
         <!-- IF REGISTERED -->
+        <div>
+            <br />
+            <blockquote class="blockquote text-left" style=" margin-left: 10px;">
+                <p class="mb-0">Ajouter vos commentaires pour ce chapitre</p>
+            </blockquote>
+        </div>
         {ADD_COMMENTS}
 
     </div>
