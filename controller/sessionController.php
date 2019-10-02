@@ -11,7 +11,7 @@ class sessionController {
 
         // IF SESSION IS OPEN
         if (isset($_SESSION["user"])) {
-            $userInfoANDlogout_button = "<i class=\"fas fa-user\"></i>" . $_SESSION['user']->getEmail() . "<a class=\"nav-link\" href=\"index.php?action=logout\">" . file_get_contents("view/backend/button_logout.html") . "</a>";
+            $userInfoANDlogout_button = "<i class=\"fas fa-user\"></i> &nbsp;&nbsp; " . $_SESSION['user']->getEmail() . "<a class=\"nav-link\" href=\"index.php?action=logout\">" . file_get_contents("view/backend/button_logout.html") . "</a>";
 
             // GAETAN
             // IF USER IS ADMIN

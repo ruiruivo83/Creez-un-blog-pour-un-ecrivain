@@ -13,17 +13,29 @@
       <executable />
     </execution>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectId" id="1RMqIOOQgiK3LfdP5Lkl42VH7K5" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ruivo\Dropbox\OPENCLASSROOMS\PROJET - P4\CONSTRUCTION - Creez un blog pour un ecrivain\build08\test03\public\css\old" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ruivo\Dropbox\OPENCLASSROOMS\PROJET - P4\CONSTRUCTION - Creez un blog pour un ecrivain\build08\test03\public\css" />
+      <recent name="C:\Users\ruivo\Dropbox\OPENCLASSROOMS\PROJET - P4\CONSTRUCTION - Creez un blog pour un ecrivain\build08\test03\public\js" />
       <recent name="C:\Users\ruivo\Dropbox\OPENCLASSROOMS\PROJET - P4\CONSTRUCTION - Creez un blog pour un ecrivain\build08\test01\model" />
       <recent name="C:\Users\ruivo\Dropbox\OPENCLASSROOMS\PROJET - P4\CONSTRUCTION - Creez un blog pour un ecrivain\build08\test01\public" />
       <recent name="C:\Users\ruivo\Dropbox\OPENCLASSROOMS\PROJET - P4\CONSTRUCTION - Creez un blog pour un ecrivain\build08\test01\view" />
-      <recent name="C:\Users\ruivo\Dropbox\OPENCLASSROOMS\PROJET - P4\CONSTRUCTION - Creez un blog pour un ecrivain\build08\test01" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -55,6 +67,10 @@
       <workItem from="1569655480306" duration="4091000" />
       <workItem from="1569790061715" duration="7000" />
       <workItem from="1569835543791" duration="2447000" />
+      <workItem from="1569838024104" duration="1229000" />
+      <workItem from="1569847155418" duration="25000" />
+      <workItem from="1569848316557" duration="8521000" />
+      <workItem from="1570002046633" duration="602000" />
     </task>
     <servers />
   </component>

@@ -16,7 +16,6 @@ class Posts
         $this->setId($id);
         $this->setContenu($Contenu);
         $this->setTitre($Titre);
-
     }
 
 
@@ -62,7 +61,7 @@ class Posts
         $req->execute(array($Titre, $Contenu));
     }
 
-    public function edit_post_query($id, $edit_post_default_code)
+    public function edit_post_query($id)
     {
         $bdd = Database::getBdd();
         $req = $bdd->prepare('SELECT titre, contenu FROM billets WHERE id = :id');
@@ -80,7 +79,7 @@ class Posts
         $req->execute(array($this->Titre, $this->Contenu, $this->id));
     }
 
-    public function delete_post_query()
+    public function delete()
     {
         $bdd = Database::getBdd();
         // DELETE POST ID

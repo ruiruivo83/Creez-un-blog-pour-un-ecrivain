@@ -105,7 +105,7 @@ class postController
     private function edit_post_query($id, $edit_post_default_code)
     {
         $post = new Posts(null, null, null);
-        $result = $post->edit_post_query($id, $edit_post_default_code);
+        $result = $post->edit_post_query($id);
 
         foreach ($result as $current_result) {
             $edit_post_default_code = str_replace("{INPUT_TITRE}", '<input type="text" name="titre" id="Titre" value="' . $current_result["titre"] . '" required>', $edit_post_default_code);
@@ -135,7 +135,7 @@ class postController
     {
         if (isset($_SESSION['user']) && $_SESSION["user"]->isAdmin()) {
             $post = new Posts($id, null, null);
-            $post->delete_post_query( /* ??? */);
+            $post->delete( /* ??? */);
             header("Location: index.php?action=blog");
         }
     }

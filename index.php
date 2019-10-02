@@ -150,7 +150,7 @@ class router
         // DELETE COMMENT
         if ($_GET['action'] == 'delete_comment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
-                $commentController->delete_comment($_GET['id']);
+                $commentController->delete_comment();
             } else {
                 echo 'Erreur : aucun identifiant de commentaire envoyé';
             }
