@@ -16,12 +16,14 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="CSS File" />
       </list>
     </option>
   </component>
   <component name="ProjectId" id="1RMqIOOQgiK3LfdP5Lkl42VH7K5" />
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -72,6 +74,7 @@
       <workItem from="1569848316557" duration="8521000" />
       <workItem from="1570002046633" duration="602000" />
       <workItem from="1570024057182" duration="6484000" />
+      <workItem from="1570089118419" duration="7634000" />
     </task>
     <servers />
   </component>

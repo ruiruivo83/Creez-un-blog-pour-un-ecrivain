@@ -40,17 +40,17 @@ class Router
             //////////////////////// ROUTER PAGES ////////////////////////////
             //////////////////////////////////////////////////////////////////
 
-            // ACCUEIL OK
+            // ACCUEIL
             if ($_GET['action'] == 'accueil') {
                 $pagesController->accueil();
             }
 
-            // BIOGRAPHIE OK
+            // BIOGRAPHIE
             if ($_GET['action'] == 'biographie') {
                 $pagesController->biographie();
             }
 
-            // BLOG OK
+            // BLOG
             if ($_GET['action'] == 'blog') {
                 $pagesController->blog();
             }
@@ -76,8 +76,12 @@ class Router
 
             // PAGE ADMIN
             if ($_GET['action'] == 'admin') {
-
                 $adminController->admin();
+            }
+
+            // PAGE POLITIQUE
+            if ($_GET['action'] == 'politique') {
+                $pagesController->politique();
             }
 
 

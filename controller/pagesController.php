@@ -59,4 +59,14 @@ class pagesController
         echo $view;
     }
 
+    // PAGE POLITIQUE
+    public function politique()
+    {
+        $view = file_get_contents("view/frontend/_layout.html");
+        $view = str_replace("{CONTENT}", file_get_contents("view/frontend/politique.html"), $view);
+        $sessionController = new sessionController;
+        $view = $sessionController->replaceMenuIfSessionIsOpen($view);
+        echo $view;
+    }
+
 }

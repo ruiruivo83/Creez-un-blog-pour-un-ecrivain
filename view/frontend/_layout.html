@@ -10,22 +10,22 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 
     <!-- LOCAL CSS -->
+    <!--
     <meta name="viewpoint" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" media="screen and (max-width: 767px)" href="public/css/style_mobile.css" />
-    <link rel="stylesheet" media="screen and (min-width: 768px)" href="public/css/style_desktop.css" />
+    <link rel="stylesheet" media="screen and (min-width: 768px)" href="public/css/style_screen.css" />
+    -->
+    <link rel="stylesheet" media="screen"  type="text/css" href="public/css/style_screen.css">
 
-    <meta name="viewport" content="width=300, initial-scale=1.0" />
-    <meta name="viewport" content="width=400, initial-scale=0.8" />
-
-    <!-- <link rel="stylesheet" type="text/css" href="public/css/style.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="public/css/style_screen.css"> -->
 
     <!-- Tiny MCE -->
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"></script>
-    <script>tinymce.init({ selector: '#textarea', branding: false, menubar: false, toolbar: true,  });</script>
+    <script>tinymce.init({selector: '#textarea', branding: false, menubar: false, toolbar: true,});</script>
 
 
     <!-- FONTAWESOME -->
@@ -36,41 +36,40 @@
 </head>
 
 <body>
-    <div class="top">
-        <div class="container_middle">
+<div class="top">
+    <div class="container_middle">
 
-            <nav class="nav">
-                <a class="nav-link active" href="index.php?action=accueil">
-                    <h1>Jean Forteroche</h1>
-                </a>
-                <a class="nav-link active" href="index.php?action=accueil">Accueil</a>
-                <a class="nav-link" href="index.php?action=biographie">Biographie</a>
-                <a class="nav-link" href="index.php?action=blog">Blog</a>                
-                {LOGIN}
-                {REGISTER}
-                {ADMIN}
-                {USER_INFO}
-            </nav>
-            
-        </div>
+        <nav class="nav">
+            <a class="nav-link active" href="index.php?action=accueil">
+                <h1>Jean Forteroche</h1>
+            </a>
+            <a class="nav-link active" href="index.php?action=accueil">Accueil</a>
+            <a class="nav-link" href="index.php?action=biographie">Biographie</a>
+            <a class="nav-link" href="index.php?action=blog">Blog</a>
+            {LOGIN}
+            {REGISTER}
+            {ADMIN}
+            {USER_INFO}
+        </nav>
+
     </div>
+</div>
 
-    <div class="page_main_container">
-        {CONTENT}
-    </div>
+<div class="page_main_container">
+    {CONTENT}
+</div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-
 
 
 </body>

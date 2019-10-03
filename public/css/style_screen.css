@@ -1,0 +1,225 @@
+/* _______________________________________________________________ */
+
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (min-width: 1050px) {
+    @font-face {
+        font-family: 'fontawesome';
+        src: url('/fonts/fontawesome-webfont.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'glyphicons-halflings';
+        src: url('/fonts/glyphicons-halflings-regular.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Roboto';
+        src: url('/fonts/Roboto-Regular.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'Roboto-Black';
+        src: url('/fonts/Roboto-Black.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    html {
+        position: relative;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    body {
+
+        background-color: rgb(255, 255, 255);
+        font-family: 'Roboto', arial, serif;
+
+
+        color: rgb(65, 65, 65);
+    }
+
+    .page_main_container {
+
+        width: 1000px;
+        margin: auto;
+        margin-top: 10px;
+
+    }
+
+    .main_container {
+        width: 100%;
+    }
+
+    .top .nav {
+        background-color: rgb(220, 220, 220);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        vertical-align: center;
+        width: 100%;
+        color: grey;
+    }
+
+    .top .nav .nav-link {
+        color: #4b4b4b;
+    }
+
+    .top .nav .nav-link h1 {
+        color: #192338;
+    }
+
+    .top .nav .nav-link:hover {
+        color: #569cce;
+    }
+
+    .biographie_main_container {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .input_text textarea {
+        background-color: rgb(197, 251, 215);
+        width: 80%;
+        height: 200px;
+    }
+
+    .card_body_comments_container {
+        margin: 60px;
+        margin-bottom: 20px;
+    }
+
+    .div_comment {
+
+        margin-bottom: 10px;
+    }
+
+    .login_container {
+        width: 500px;
+        margin: auto;
+        margin-top: 100px;
+    }
+
+
+    .main_register_container {
+        width: 500px;
+        margin: auto;
+        margin-top: 100px;
+
+
+    }
+
+    /* _________________________ ADMIN SECTION ______________________ */
+    .new_post_title {
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+
+    .div_add_form {
+        margin-top: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .div_add_form .btn-primary {
+        margin-bottom: 30px;
+    }
+
+    .admin_post_title a {
+        margin: 10px;
+    }
+
+    .div_comment_options a {
+        margin: 10px;
+    }
+}
+
+
+@media screen and (max-width: 1049px) {
+
+
+    .top .nav {
+        background-color: rgb(220, 220, 220);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        vertical-align: center;
+        width: 100%;
+        color: grey;
+    }
+
+    .top .nav .nav-link {
+        color: #4b4b4b;
+    }
+
+    .top .nav .nav-link h1 {
+        color: #192338;
+    }
+
+    .top .nav .nav-link:hover {
+        color: #569cce;
+    }
+
+    .jumbotron {
+        margin: 5px;
+    }
+
+    .biographie_text {
+        margin: 25px;
+    }
+
+    .login_container {
+        margin: 15%;
+    }
+
+    .main_register_container {
+        margin: 15%;
+    }
+
+    .nav h1 {
+        align-self: center;
+    }
+
+    .card_body_comments_container {
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-bottom: 10px;
+    }
+
+    .biographie_main_container .card {
+        margin: auto;
+    }
+
+
+    /* _________________________ ADMIN SECTION ______________________ */
+    .new_post_title {
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+
+    .div_add_form {
+        margin-top: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .div_add_form .btn-primary {
+        margin-bottom: 30px;
+    }
+
+    .admin_post_title a {
+        margin: 10px;
+    }
+
+    .div_comment_options a {
+        margin: 10px;
+    }
+
+}
+
