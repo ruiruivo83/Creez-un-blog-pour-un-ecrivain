@@ -101,10 +101,6 @@ class User
         return $result;
     }
 
-
-
-
-
     public function addUser()
     {
         $bdd = Database::getBdd();
@@ -113,6 +109,16 @@ class User
         $req->execute(array($this->prenom, $this->nom, $this->email, $this->psw));
 
     }
+
+    public function getEmailCount()
+    {
+        $bdd = Database::getBdd($this->email);
+        $req = $bdd->prepare("SELECT * FROM users WHERE email =  ?   ");
+        $req->execute(array($this->email));
+        $emailCount = $req->rowCount();
+        return $emailCount;
+    }
+
 
 
 

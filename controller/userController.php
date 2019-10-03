@@ -10,17 +10,37 @@ class userController
         if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST["email"])) {
             // GET LOGIN INFO FROM USER POST METHOD
             $login_email = $_POST["email"];
-            $login_psw = $_POST["password"];
-            $user = User::findByEmail($login_email);
-            if ($user != null && password_verify($login_psw, $user->getPsw())) {   // IF PASSWORD IS OK
-                $_SESSION['user'] = $user; // IMPORTANT GAETAN
-                header('Location: ../index.php');
+            $login_password = $_POST["password"];
+
+            if ($this->testIfEmailExists($login_email)) {
+
+                $user = User::findByEmail($login_email);
+
+                if ($user != null && password_verify($login_password, $user->getPsw())) {   // IF PASSWORD IS OK
+                    $_SESSION['user'] = $user; // IMPORTANT GAETAN
+                    header('Location: ../index.php');
+                } else {
+                    $message = '<div class="alert alert-danger" role="alert">MOT DE PASSE EST INCORRECT</div>';
+                    $view = file_get_contents('view/frontend/_layout.html');
+                    $view = str_replace("{CONTENT}", file_get_contents('view/frontend/login.html'), $view);
+                    $view = str_replace("<!--{MESSAGEALERT}-->", $message, $view);
+                    $sessionController = new sessionController;
+                    $view = $sessionController->replaceMenuIfSessionIsOpen($view);
+                    echo $view;
+                }
+                exit();
             } else {
-                var_dump("Password is incorrect");
-                sleep(5);
-                header('Location: ../index.php?action=login');
+                $message = '<div class="alert alert-danger" role="alert">MAIL NON RECONNU</div>';
+                $view = file_get_contents('view/frontend/_layout.html');
+                $view = str_replace("{CONTENT}", file_get_contents('view/frontend/login.html'), $view);
+                $view = str_replace("<!--{MESSAGEALERT}-->", $message, $view);
+                $sessionController = new sessionController;
+                $view = $sessionController->replaceMenuIfSessionIsOpen($view);
+                echo $view;
             }
-            exit();
+
+
+
         }
     }
 
@@ -44,13 +64,41 @@ class userController
             $psw = password_hash($_POST["psw"], PASSWORD_DEFAULT);
 
             $user = new User(null, $psw, $email, $nom, $prenom);
-            $user->addUser();
+            // Test if email exists in database
+            if ($this->testIfEmailExists($email)) {
+                $message = '<div class="alert alert-danger" role="alert">CE MAIL EST EXISTANT</div>';
+                $view = file_get_contents('view/frontend/_layout.html');
+                $view = str_replace("{CONTENT}", file_get_contents('view/frontend/register.html'), $view);
+                $view = str_replace("<!--{MESSAGEALERT}-->", $message, $view);
+                $sessionController = new sessionController;
+                $view = $sessionController->replaceMenuIfSessionIsOpen($view);
+                echo $view;
 
-            header('Location: ../index.php');
+            } else {
+                // Add User to Database
+                $user->addUser();
+                header('Location: ../index.php');
+            }
 
         }
 
     }
+
+
+    public function testIfEmailExists($email)
+    {
+        $user = new User(null, null, $email, null, null);
+        $emailCount = $user->getEmailCount();
+
+        if ($emailCount == 0) {
+            $result = false;
+            return $result;
+        } else {
+            $result = true;
+            return $result;
+        }
+    }
+
 
 
 }

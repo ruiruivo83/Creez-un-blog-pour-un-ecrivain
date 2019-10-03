@@ -1,4 +1,4 @@
-document.write("Inside javascript code.");
+// document.write("Inside javascript code.");
 
 
 var password = document.getElementById("password"), confirm_password = document.getElementById("confirm_password");

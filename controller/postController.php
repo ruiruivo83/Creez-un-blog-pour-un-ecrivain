@@ -61,6 +61,8 @@ class postController
             $bloc_billet .= $current_billet;
         }
         $bloc_billet = str_replace("{POST_LIST}", $bloc_billet, $bloc_billet);
+
+
         return $bloc_billet;
     }
 

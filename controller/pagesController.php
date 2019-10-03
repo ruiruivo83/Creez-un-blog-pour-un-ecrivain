@@ -38,20 +38,18 @@ class pagesController
     // PAGE BLOG
     public function blog()
     {
-
         $view = file_get_contents("view/frontend/_layout.html");
         $view = str_replace("{CONTENT}", file_get_contents("view/frontend/blog.html"), $view);
 
         $sessionController = new sessionController;
         $view = $sessionController->replaceMenuIfSessionIsOpen($view);
-
-        // TODO
-        $post = new postController;
-        $view = str_replace("{POST_LIST}", $post->ReplacePostList($view), $view);
+        $postController = new postController;
+        $view = str_replace("{POST_LIST}", $postController->ReplacePostList($view), $view);
+        $view = str_replace("<!--{REGISTERMESSAGE}-->", "", $view);
         echo $view;
-
     }
 
+    // PAGE REGISTER
     public function register()
     {
         $view = file_get_contents("view/frontend/_layout.html");

@@ -33,15 +33,20 @@ html {
 }
 
 body {
+
     background-color: rgb(255, 255, 255);
     font-family: 'Roboto', arial, serif;
-    margin: 0px;
-    padding: 0px;
+
+
     color: rgb(65, 65, 65);
 }
 
 .page_main_container {
+
+    width: 1000px;
+    margin: auto;
     margin-top: 10px;
+
 }
 
 .main_container {
@@ -82,21 +87,32 @@ body {
 }
 
 .card_body_comments_container {
-    margin-left: 30px;
+    margin: 60px;
     margin-bottom: 20px;
 }
 
 .div_comment {
-    margin-right: 10px;
+
     margin-bottom: 10px;
 }
 
-    /* _________________________ ADMIN SECTION ______________________ */
-
-.page_main_container {
-    margin-left: 10px;
-    margin-right: 10px;
+.login_container {
+    width: 500px;
+    margin: auto;
+    margin-top: 100px;
 }
+
+
+.main_register_container {
+    width: 500px;
+    margin: auto;
+    margin-top: 100px;
+
+
+}
+/* _________________________ ADMIN SECTION ______________________ */
+
+
 
 .new_post_title {
     margin-top: 20px;
