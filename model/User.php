@@ -13,7 +13,7 @@ class User
     private $prenom;
     private $admin;
 
-
+    // CONSTRUCT
     public function __construct($id, $psw, $email, $nom, $prenom, $admin = false)
     {
         $this->id = $id;
@@ -72,13 +72,11 @@ class User
         return $this->admin;
     }
 
-
+    // QUERY - GET ALL INFO ABOUT SPECIFIC USER
     public static function findByEmail($email)
     {
         $bdd = Database::getBdd();
-
         // GET DATA FROM DATABASE
-
         $req = $bdd->prepare("SELECT * FROM users WHERE email =  ?   ");
         $req->execute(array($email));
         $numresult = $req->rowCount();
@@ -96,20 +94,19 @@ class User
         } else {
             return null;
         }
-
         $result = $req->fetchall();
         return $result;
     }
 
+    // QUERY - ADD USER TO DATABASE
     public function addUser()
     {
         $bdd = Database::getBdd();
-
         $req = $bdd->prepare("INSERT INTO users(prenom, nom, email, psw, date_creation ) values (?, ?, ?, ?, NOW()) ");
         $req->execute(array($this->prenom, $this->nom, $this->email, $this->psw));
-
     }
 
+    // QUERY - VERIFY IF USER EMAIL EXISTS IN THE DATABASE
     public function getEmailCount()
     {
         $bdd = Database::getBdd($this->email);
@@ -118,9 +115,6 @@ class User
         $emailCount = $req->rowCount();
         return $emailCount;
     }
-
-
-
 
 
 }

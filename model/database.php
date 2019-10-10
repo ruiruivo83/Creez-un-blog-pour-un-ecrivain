@@ -1,6 +1,3 @@
-<!-- NECESSAIRE POUR LA SOUTENANCE -->
-
-
 <?php
 
 include "config.php";
@@ -10,6 +7,7 @@ class Database
 {
     private static $bdd = null;
 
+    // MAIN DATABASE CONNECTION USED BY ALL METHODS
     public static function getBdd()
     {
 

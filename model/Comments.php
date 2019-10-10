@@ -3,12 +3,12 @@
 class Comments
 {
 
-public function add_comment($Valide, $Signale, $UserName, $Comment, $Post_ID) {
-    $bdd = Database::getBdd();
-    $req = $bdd->prepare("INSERT INTO comments(valide, signale, username, contenu, post_id, date_creation) values (?, ?, ?, ?, ?, NOW()) ");
-    $req->execute(array($Valide, $Signale, $UserName, $Comment, $Post_ID));
-}
-
+    public function add_comment($Valide, $Signale, $UserName, $Comment, $Post_ID)
+    {
+        $bdd = Database::getBdd();
+        $req = $bdd->prepare("INSERT INTO comments(valide, signale, username, contenu, post_id, date_creation) values (?, ?, ?, ?, ?, NOW()) ");
+        $req->execute(array($Valide, $Signale, $UserName, $Comment, $Post_ID));
+    }
 
 
     public function GetComments($post_id)
@@ -34,8 +34,6 @@ public function add_comment($Valide, $Signale, $UserName, $Comment, $Post_ID) {
         $bdd = Database::getBdd();
         $req = $bdd->prepare("UPDATE comments SET date_creation = (NOW()) WHERE id = ?");
         $req->execute(array($id));
-        // $result = $req->fetchall();
-        // return $result;
     }
 
     public function getNonValidatedComments($post_id, $email)
@@ -62,11 +60,21 @@ public function add_comment($Valide, $Signale, $UserName, $Comment, $Post_ID) {
         $req->execute();
     }
 
-    public function signale( $id)
+    public function signale($id)
     {
         $bdd = Database::getBdd();
         $req = $bdd->prepare("UPDATE comments SET signale=1 WHERE id=?");
         $req->execute(array($id));
+    }
+
+    public function getAuthorForThisCommentId($id)
+    {
+        $bdd = Database::getBdd();
+        $req = $bdd->prepare("SELECT username FROM comments WHERE id = :id");
+        $req->bindParam(':id', $id);
+        $req->execute();
+        $result = $req->fetchall();
+        return $result;
     }
 
 }

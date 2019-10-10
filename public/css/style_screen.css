@@ -138,6 +138,35 @@
     .div_comment_options a {
         margin: 10px;
     }
+
+    .comment_author {
+        font-size: smaller;
+        color: cadetblue;
+    }
+
+    .edit_post_content .input_text #textarea {
+        height: 500px;
+    }
+
+
+    .container_new_post .div_add_form #textarea {
+        height: 500px;
+    }
+
+    #carouselExampleInterval h5 {
+        background-color: rgba(128, 128, 128, 0.76);
+        box-shadow: 3px 3px 10px grey;
+    }
+
+    #carouselExampleInterval {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        box-shadow: 3px 3px 10px grey;
+    }
+
+    .card-body {
+        box-shadow: 3px 3px 10px grey;
+    }
 }
 
 
@@ -196,6 +225,12 @@
         margin: auto;
     }
 
+    .input_text textarea {
+        background-color: rgb(197, 251, 215);
+        width: 80%;
+        height: 200px;
+    }
+
 
     /* _________________________ ADMIN SECTION ______________________ */
     .new_post_title {
@@ -220,6 +255,12 @@
     .div_comment_options a {
         margin: 10px;
     }
+
+    .comment_author {
+        font-size: smaller;
+        color: cadetblue;
+    }
+
 
 }
 

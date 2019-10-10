@@ -1,0 +1,10 @@
+[08-Oct-2019 13:27:28 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: NO) in /home/a7tvva809nd8/public_html/blogecrivain/model/Database.php:16
+Stack trace:
+#0 /home/a7tvva809nd8/public_html/blogecrivain/model/Database.php(16): PDO->__construct('mysql:host=loca...', 'root', '', Array)
+#1 /home/a7tvva809nd8/public_html/blogecrivain/model/User.php(112): Database::getBdd('admin@jeanforte...')
+#2 /home/a7tvva809nd8/public_html/blogecrivain/controller/userController.php(82): User->getEmailCount()
+#3 /home/a7tvva809nd8/public_html/blogecrivain/controller/userController.php(15): userController->testIfEmailExists('admin@jeanforte...')
+#4 /home/a7tvva809nd8/public_html/blogecrivain/index.php(94): userController->loginValidation()
+#5 /home/a7tvva809nd8/public_html/blogecrivain/index.php(178): Router->main()
+#6 {main}
+  thrown in /home/a7tvva809nd8/public_html/blogecrivain/model/Database.php on line 16

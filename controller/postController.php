@@ -6,12 +6,11 @@ require 'model/Posts.php';
 class postController
 {
 
-
-
+    // REPLACE POST LIST AREA IN THE HTML BY ALL AVAILABLE POSTS
     public function ReplacePostList()
     {
         $post_default_code = file_get_contents("view/backend/post_default_code.html");
-        $post = new Posts(null,null , null);
+        $post = new Posts(null, null, null);
         $result = $post->getPosts(Database::getBdd()); // FROM MODEL
         $bloc_billet = "";
         foreach ($result as $current_result) {
@@ -62,16 +61,16 @@ class postController
         }
         $bloc_billet = str_replace("{POST_LIST}", $bloc_billet, $bloc_billet);
 
-
         return $bloc_billet;
     }
 
+    // SIMPLE LIST OF AVAILABLE POSTS WITHEOUT DETAILS FOR THE ADMIN AREA
     public function GetPostListHTMLTable()
     {
         $HTMLPostListTable = "";
         $bloc_post_list = file_get_contents("view/backend/post_list_table_default_code_main_bloc.html");
         $post_default_code = file_get_contents("view/backend/post_list_table_default_code.html");
-        $post = new Posts(null, null,null );
+        $post = new Posts(null, null, null);
         $result = $post->getPosts(); // FROM MODEL
         $bloc_billet = "";
         foreach ($result as $current_result) {
@@ -85,6 +84,7 @@ class postController
         return $bloc_post_list;
     }
 
+    // EDIT POST
     public function editPost($id)
     {
         if (isset($_SESSION['user']) && $_SESSION["user"]->isAdmin()) {
@@ -97,6 +97,7 @@ class postController
         }
     }
 
+    // GETS DEFAULT CODE FOR EACH POST TO BUILD
     public function edit_post_code($id)
     {
         $edit_post_default_code = file_get_contents("view/backend/edit_post_default_code.html");
@@ -104,6 +105,7 @@ class postController
         return $edit_post_default_code;
     }
 
+    // REPLACES DETAILS INSIDE POST CODE BY THEIR VALUES FROM THE MODEL $post->edit_post_query($id)
     private function edit_post_query($id, $edit_post_default_code)
     {
         $post = new Posts(null, null, null);
@@ -118,6 +120,8 @@ class postController
         return $edit_post_default_code;
 
     }
+
+    // UPDATE POST
     public function updatePost()
     {
         if ($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST["update_post"])) {
@@ -133,6 +137,7 @@ class postController
         exit();
     }
 
+    // DELETE POST
     public function delete_post($id)
     {
         if (isset($_SESSION['user']) && $_SESSION["user"]->isAdmin()) {
@@ -142,6 +147,7 @@ class postController
         }
     }
 
+    // ADD NEW POST TO DATABASE
     public function addPost()
     {
         if (isset($_SESSION['user']) && $_SESSION["user"]->isAdmin()) {

@@ -8,4 +8,10 @@ Admin Pass: azerty
 User01 login: user01@gmail.com
 User01 pass: az
 
+User01 login: user02@gmail.com
+User01 pass: az
+
+User01 login: user03@gmail.com
+User01 pass: az
+
 -->

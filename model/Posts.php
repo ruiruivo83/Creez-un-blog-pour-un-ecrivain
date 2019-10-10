@@ -43,7 +43,7 @@ class Posts
         $this->Contenu = $Contenu;
     }
 
-
+    // GET ALL POSTS FROM DATABASE, ORDER BY DESC DATE
     public function getPosts()
     {
         $bdd = Database::getBdd();
@@ -54,6 +54,7 @@ class Posts
         return $result;
     }
 
+    // ADD POSTS TO DATABASE
     public function addPost($Titre, $Contenu)
     {
         $bdd = Database::getBdd();
@@ -61,6 +62,7 @@ class Posts
         $req->execute(array($Titre, $Contenu));
     }
 
+    // EDIT POST
     public function edit_post_query($id)
     {
         $bdd = Database::getBdd();
@@ -71,7 +73,7 @@ class Posts
         return $result;
     }
 
-
+    // UPDATE POST
     public function update()
     {
         $bdd = Database::getBdd();
@@ -79,6 +81,7 @@ class Posts
         $req->execute(array($this->Titre, $this->Contenu, $this->id));
     }
 
+    // DELETE POST
     public function delete()
     {
         $bdd = Database::getBdd();
