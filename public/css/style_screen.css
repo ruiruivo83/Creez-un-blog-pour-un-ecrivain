@@ -16,13 +16,14 @@
         font-style: normal;
     }
 
+    /*
     @font-face {
         font-family: 'Roboto';
         src: url('/fonts/Roboto-Regular.ttf') format('truetype');
         font-weight: normal;
         font-style: normal;
     }
-
+    */
     @font-face {
         font-family: 'Roboto-Black';
         src: url('/fonts/Roboto-Black.ttf') format('truetype');
@@ -96,7 +97,7 @@
     }
 
     .div_comment {
-
+        margin-top: 10px;
         margin-bottom: 10px;
     }
 
@@ -114,6 +115,11 @@
 
 
     }
+
+    .biographie_main_container .card-body {
+        margin: 20px;
+    }
+
 
     /* _________________________ ADMIN SECTION ______________________ */
     .new_post_title {
@@ -153,6 +159,7 @@
         height: 500px;
     }
 
+    /* ___________________________________________ */
     #carouselExampleInterval h5 {
         background-color: rgba(128, 128, 128, 0.76);
         box-shadow: 3px 3px 10px grey;
@@ -167,6 +174,14 @@
     .card-body {
         box-shadow: 3px 3px 10px grey;
     }
+
+
+    .container_middle {
+        width: 1000px;
+        margin: auto;
+    }
+
+
 }
 
 
@@ -231,6 +246,11 @@
         height: 200px;
     }
 
+    .div_comment {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
 
     /* _________________________ ADMIN SECTION ______________________ */
     .new_post_title {
@@ -259,6 +279,33 @@
     .comment_author {
         font-size: smaller;
         color: cadetblue;
+    }
+
+
+    /* ___________________________________________ */
+    #carouselExampleInterval h5 {
+        background-color: rgba(128, 128, 128, 0.76);
+        box-shadow: 3px 3px 10px grey;
+    }
+
+    #carouselExampleInterval {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        box-shadow: 3px 3px 10px grey;
+    }
+
+    .card-body {
+        box-shadow: 3px 3px 10px grey;
+    }
+
+
+    .container_middle {
+        max-width: 900px;
+        margin: auto;
+    }
+
+    textarea {
+        margin: 10px;
     }
 
 

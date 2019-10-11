@@ -29,15 +29,15 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\ruivo\Dropbox\OPENCLASSROOMS\PROJET - P4\CONSTRUCTION - Creez un blog pour un ecrivain\build08\test03\public\css\old" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ruivo\Dropbox\OPENCLASSROOMS\PROJET - P4\CONSTRUCTION - Creez un blog pour un ecrivain\build08\test03\public\css" />
       <recent name="C:\Users\ruivo\Dropbox\OPENCLASSROOMS\PROJET - P4\CONSTRUCTION - Creez un blog pour un ecrivain\build08\test03\public\js" />
       <recent name="C:\Users\ruivo\Dropbox\OPENCLASSROOMS\PROJET - P4\CONSTRUCTION - Creez un blog pour un ecrivain\build08\test01\model" />
       <recent name="C:\Users\ruivo\Dropbox\OPENCLASSROOMS\PROJET - P4\CONSTRUCTION - Creez un blog pour un ecrivain\build08\test01\public" />
       <recent name="C:\Users\ruivo\Dropbox\OPENCLASSROOMS\PROJET - P4\CONSTRUCTION - Creez un blog pour un ecrivain\build08\test01\view" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ruivo\Dropbox\OPENCLASSROOMS\PROJET - P4\CONSTRUCTION - Creez un blog pour un ecrivain\build08\test03\public\css\old" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -88,6 +88,10 @@
       <workItem from="1570644117279" duration="19000" />
       <workItem from="1570693609447" duration="906000" />
       <workItem from="1570694642617" duration="19000" />
+      <workItem from="1570696128765" duration="626000" />
+      <workItem from="1570696981194" duration="12451000" />
+      <workItem from="1570718872032" duration="15000" />
+      <workItem from="1570799438875" duration="1134000" />
     </task>
     <servers />
   </component>

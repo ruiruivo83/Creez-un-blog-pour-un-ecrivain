@@ -94,8 +94,6 @@ class User
         } else {
             return null;
         }
-        $result = $req->fetchall();
-        return $result;
     }
 
     // QUERY - ADD USER TO DATABASE

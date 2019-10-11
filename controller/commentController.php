@@ -98,7 +98,7 @@ class commentController
                 $current_comment = str_replace("{COMMENT_CONTENT}", $current_result["contenu"], $current_comment);
 
                 $id = $current_result["id"];
-                $link_to_apply_urgent = "<a href=\"index.php?action=apply_urgent&id=" . $id . "\" class=\"btn btn-danger btn-sm\">Demander a valider</a>(Commentaire non publié)";
+                $link_to_apply_urgent = "<a href=\"index.php?action=apply_urgent&id=" . $id . "\" class=\"btn btn-danger btn-sm\">Demander a valider</a>";
                 $current_comment = str_replace("{APPLY_URGENT}", $link_to_apply_urgent, $current_comment);
 
                 $List_Comments .= $current_comment;
@@ -164,15 +164,12 @@ class commentController
         exit();
     }
 
-    // DELETES A COMMENT FROM DATABASE
+    // DELETES A COMMENT FROM DATABASE IF USER IS ADMIN OR THE AUTHOR
     public function delete_comment()
     {
         $comments = new Comments();
         $result = $comments->getAuthorForThisCommentId($_GET['id']);
-        $string = implode(",", $result[0]);
-        $string = explode(",", $string);
-        $Author = $string[0];
-
+        $Author = $result[0][0];
         if (isset($_SESSION['user']) && ($Author == $_SESSION['user']->getEmail()) || (isset($_SESSION['user']) &&  $_SESSION['user']->isAdmin() )) {
             $comments->delete_comment();
             header("Location: index.php?action=blog");

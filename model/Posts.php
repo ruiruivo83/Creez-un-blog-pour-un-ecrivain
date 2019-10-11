@@ -90,7 +90,7 @@ class Posts
         $req->bindParam(':id', $_GET['id']);
         $req->execute();
         // DELETE COMMENTS FOR POST ID
-        $req = $this->bdd->prepare('DELETE FROM comments WHERE post_id = :id');
+        $req = $bdd->prepare('DELETE FROM comments WHERE post_id = :id');
         $req->bindParam(':id', $_GET['id']);
         $req->execute();
     }

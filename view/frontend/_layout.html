@@ -11,12 +11,13 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- LOCAL CSS -->
-    <link rel="stylesheet" media="screen"  type="text/css" href="public/css/style_screen.css">
+    <link rel="stylesheet" media="screen" type="text/css" href="public/css/style_screen.css">
 
     <!-- Tiny MCE -->
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"></script>
+    <script src="https://cdn.tiny.cloud/1/h8hbeyt8ngmzxfy8s33296277uxezpiwsca8s783fh724brt/tinymce/5/tinymce.min.js"></script>
+    <!-- <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"></script> -->
     <!-- <script>tinymce.init({selector: '#textarea', branding: false, menubar: false, toolbar: true,});</script> -->
-    <script>tinymce.init({selector: '#textarea', branding: false,  toolbar: true,});</script>
+    <script>tinymce.init({selector: '#textarea', branding: false, toolbar: true,});</script>
 
     <!-- FONTAWESOME -->
     <script src="https://kit.fontawesome.com/8163c01118.js"></script>
@@ -27,17 +28,46 @@
 <body>
 <div class="top">
     <div class="container_middle">
-        <nav class="nav">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="nav-link active" href="index.php?action=accueil">
-                <h1>Jean Forteroche</h1>
+                <h1 style=" color: black;">Jean Forteroche <i class="fas fa-feather-alt"></i></h1>
             </a>
-            <a class="nav-link active" href="index.php?action=accueil">Accueil</a>
-            <a class="nav-link" href="index.php?action=biographie">Biographie</a>
-            <a class="nav-link" href="index.php?action=blog">Blog</a>
-            {LOGIN}
-            {REGISTER}
-            {ADMIN}
-            {USER_INFO}
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link active" href="index.php?action=accueil">Accueil</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.php?action=biographie">Biographie</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.php?action=blog">Blog</a>
+                    </li>
+                    <li class="nav-item active">
+                        {LOGIN}
+                    </li>
+                    <li class="nav-item active">
+                        {REGISTER}
+                    </li>
+                    <li class="nav-item active">
+                        {ADMIN}
+                    </li>
+                    <li class="nav-item active">
+                        {USER_INFO}
+                    </li>
+                    <li>
+                        {LOGOUT}
+                    </li>
+                </ul>
+            </div>
         </nav>
     </div>
 </div>
